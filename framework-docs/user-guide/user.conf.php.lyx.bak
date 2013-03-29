@@ -1,0 +1,291 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+%This preamble is designed to ensure that the document prints
+% out as advertised. If you mess with this preamble,
+% parts of the document may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+\usepackage{ifpdf} % part of the hyperref bundle
+\ifpdf % if pdflatex is used
+
+ % set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+
+ % link all cross references and URLs in pdf output
+ \usepackage[colorlinks=true, bookmarks, bookmarksnumbered,
+  bookmarksopen, bookmarksopenlevel=2,
+  linkcolor=blue, citecolor=black, urlcolor=blue, filecolor=blue,
+  pdfpagelayout=OneColumn, pdfnewwindow=true,
+  pdfstartview=XYZ, plainpages=false, pdfpagelabels,
+  pdfauthor={LyX Team}, pdftex,
+  pdftitle={Introduction to LyX},pdfsubject={LyX-documentation Intro},
+  pdfkeywords={LyX, documentation}]{hyperref}
+ 
+\else % if dvi or ps is produced
+
+ % link all cross references and URLs in dvi output
+ \usepackage[ps2pdf]{hyperref}
+
+\fi % end if pdflatex is used
+
+ % the pages of the TOC are numbered roman
+ % and a pdf-bookmark for the TOC is added
+ \pagenumbering{roman}
+ \let\myTOC\tableofcontents
+ \renewcommand\tableofcontents{%
+   \pdfbookmark[1]{Contents}{}
+   \myTOC
+   \cleardoublepage
+   \pagenumbering{arabic} }
+
+% redefine the \LyX macro for PDF bookmarks
+\def\LyX{\texorpdfstring{%
+  L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX }}
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize 12
+\spacing single
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout LyX-Code
+
+\family roman
+\series bold
+user.conf.php
+\newline
+
+\newline
+
+\family default
+\series default
+01 <?php
+\end_layout
+
+\begin_layout LyX-Code
+02
+\end_layout
+
+\begin_layout LyX-Code
+03 // kazaam-sitetpl user configuration file
+\end_layout
+
+\begin_layout LyX-Code
+04 // file-id: /kazaam-sitetpl/shared/incs/user.conf.php
+\end_layout
+
+\begin_layout LyX-Code
+05
+\end_layout
+
+\begin_layout LyX-Code
+06 /**
+\end_layout
+
+\begin_layout LyX-Code
+07 this config file is included by site-config.php as plain text,
+\end_layout
+
+\begin_layout LyX-Code
+08 and not encoded.
+ Values set here apply globally to a site,
+\end_layout
+
+\begin_layout LyX-Code
+09 but may be overidden in module-name.conf.php files.
+\end_layout
+
+\begin_layout LyX-Code
+10 **/
+\end_layout
+
+\begin_layout LyX-Code
+11
+\end_layout
+
+\begin_layout LyX-Code
+12 // uncomment this line to turn OFF all error messages globally
+\end_layout
+
+\begin_layout LyX-Code
+13 // error_reporting(0);
+\end_layout
+
+\begin_layout LyX-Code
+14
+\end_layout
+
+\begin_layout LyX-Code
+15 /* ---------------------------------------------- */
+\end_layout
+
+\begin_layout LyX-Code
+16 // this required config file will not be encoded
+\end_layout
+
+\begin_layout LyX-Code
+17 // and contains variables to set domain specific paths
+\end_layout
+
+\begin_layout LyX-Code
+18
+\end_layout
+
+\begin_layout LyX-Code
+19 require "$SHARED_INCS/domain.conf.php";
+\end_layout
+
+\begin_layout LyX-Code
+20 /* ---------------------------------------------- */
+\end_layout
+
+\begin_layout LyX-Code
+21
+\end_layout
+
+\begin_layout LyX-Code
+22 // meta keywords tag
+\end_layout
+
+\begin_layout LyX-Code
+23 $META_KEYWORDS = 'keyword default content for
+\end_layout
+
+\begin_layout LyX-Code
+24   kazaam-sitetpl website here - may span multiple lines';
+\end_layout
+
+\begin_layout LyX-Code
+25
+\end_layout
+
+\begin_layout LyX-Code
+26 // meta description tag
+\end_layout
+
+\begin_layout LyX-Code
+27 $META_DESCRIPTION = 'description default content for
+\newline
+28   kazaam-sitetpl
+ website here - may span multiple lines';
+\end_layout
+
+\begin_layout LyX-Code
+29
+\end_layout
+
+\begin_layout LyX-Code
+30 /* ---------------------------------------------- */
+\end_layout
+
+\begin_layout LyX-Code
+31 // database connectivity
+\end_layout
+
+\begin_layout LyX-Code
+32 // each website has at least one database with the same
+\end_layout
+
+\begin_layout LyX-Code
+33 // name as the website
+\end_layout
+
+\begin_layout LyX-Code
+34
+\end_layout
+
+\begin_layout LyX-Code
+35 // Mysql hostname for this website
+\end_layout
+
+\begin_layout LyX-Code
+36 $hostname = 'localhost';
+\end_layout
+
+\begin_layout LyX-Code
+37
+\end_layout
+
+\begin_layout LyX-Code
+38 // default database for this website
+\end_layout
+
+\begin_layout LyX-Code
+39 $dbname = 'kazaam-sitetpl';
+\end_layout
+
+\begin_layout LyX-Code
+40
+\end_layout
+
+\begin_layout LyX-Code
+41 // $username is set for each module in
+\newline
+42 // module-name/local/incs/module-nam
+e.conf.php
+\end_layout
+
+\begin_layout LyX-Code
+43
+\end_layout
+
+\begin_layout LyX-Code
+44 // $password is set for each module in
+\newline
+45 // module-name/local/incs/module-nam
+e.conf.php
+\end_layout
+
+\begin_layout LyX-Code
+46 /* ---------------------------------------------- */
+\end_layout
+
+\begin_layout LyX-Code
+47
+\end_layout
+
+\begin_layout LyX-Code
+48 ?>
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,261 @@
+==================================================================
+KAZAAM FRAMEWORK IDEAS
+==================================================================
+
+// This is only a scratchpad for jotting down ideas I get about
+// extending kazaam
+
+-----------------------------------------------------------------------
+Use php variables in user.conf.php for identifying element id and
+class attributes. This would allow global changes to be made to *all*
+class and id attributes for all pages, from one configuration file.
+
+Eg.
+
+instead of the xhtml code:
+
+<span id="cool_text">some cool text</span>
+
+for an id attribute, code it as:
+
+<span id="<?php echo $COOL_TEXT_ID ?>">some cool text</span>
+
+and $COOL_TEXT_ID is defined in user.conf.php, as:
+
+# cool text id attribute value
+$COOL_TEXT_ID = "cool_text";
+
+same for a class attribute: (C stands for CLASS variable)
+
+<h1 class="<?php echo $EMERGENCY_NOTICE_C ?>">emergency notice</h1>
+
+and $EMERGENCY_NOTICE_C is defined in user.conf.php, as:
+
+# emergency notice class attribute value
+$EMERGENCY_NOTICE_C = "emergency_notice";
+
+multiple class attributes may be defined as:
+
+<h1 class="<?php echo {$EMERGENCY_NOTICE_C} {$BLINKING_C} ?>">emergency notice</h1>
+
+and where  $BLINKING_C = "blink";
+
+so the class attributes for the above line would equate to:
+
+<h1 class="emergency_notice blink">an emergency notice that blinks</h1>
+
+-----------------------------------------------------------------------
+Develop different themes that can be activated by using AJAX to load
+another stylesheet from an area of the top_link_bar. This would allow
+the site style to be changed dynamically by the user. Could offer a
+choice of CSS stylesheets for the user to choose one from.
+
+------------------------------------------------------------------
+A module can be extended by copying the page-templates directory to a
+new directory name, provided it is only copied into the same directory
+level that the page-templates directory resides in. You cannot copy
+page-templates to a directory that is on a higher or lower level.
+
+------------------------------------------------------------------
+Is it possible to place PHING markers in my source code, such as in
+page-head.php? This would allow PHING to identify certain sections
+of a file, then perform regex replacements on that part of the file?
+
+Eg:
+
+<!-- part of page-head.php -->
+
+<!-- ================================================ -->
+<!-- files common to this particular website only -->
+
+<script type="text/javascript"
+  src="<?php echo $SHARED_INCS ?>/site-js.js">
+</script>
+
+
+<!-- phing-marker-start -->
+
+<?php /* for development purposes only */ ?>
+<style type="text/css">
+  <?php require "$SITE_THEMES/site-css.php"; ?>
+</style>
+
+<!-- phing-marker-end -->
+
+
+<?php /* for live pages only */ ?>
+<!-- link rel="stylesheet" type="text/css"
+href="<?php /* echo $SITE_THEMES */ ?>/site-css.css" / -->
+
+------------------------------------------------------------------
+Is there any way to use a phing build script to generate a normal
+CSS file from site-css.php?
+
+------------------------------------------------------------------
+
+Each module could have the following directories:
+
+└── new-module/
+    └── local/
+        └── incs/
+            └── mod/
+                └── left-menus/
+                └── main/
+                └── right-menus/
+
+
+This may need more const-vars in site-config.php, such as:
+
+ // path to this module's left-hand menus
+ $MODULE_LEFT_MENUS = "../local/incs/mod/left-menus";
+
+ // path to this module's right-hand menus
+ $MODULE_RIGHT_MENUS = "../local/incs/mod/right-menus";
+
+ // path to this module's main page content.
+ $MODULE_MAIN = "../local/incs/mod/main";
+
+------------------------------------------------------------------
+Generally, 1 Rule = 1 Place.
+
+Sharing common page parts between virtual host websites.
+
+// common parts of web pages used by all websites on server
+$SHARED_HOST_PARTS
+
+// modules that are used by all websites on server
+$SHARED_HOST_MODULES
+
+// All menu items shared by all virtual websites
+//  on a particular host machine.
+$SHARED_HOST_META_MENUS
+
+// ZZZ that are used by all websites on server
+$SHARED_HOST_ZZZ
+
+Where ZZZ could be the component to share amongst each virtual host.
+
+These could possibly live in host-config.php and included by
+site-config.php.
+
+------------------------------------------------------------------
+
+Use a global configuration file for all virtual websites on the server.
+
+This could be called host-config.php, and would be included by each
+website's site-config.php file.
+
+This would allow global settings for all virtual websites to be
+applied in one place.
+
+These global settings may then be modified in each virtual
+website's site-config.php file.
+
+// Set the root for all websites.
+// Makes the framwork relocatable to another directory.
+$KAZAAM_ROOT = "/srv/www/htdocs/KAR/kazaam-mwf/kazaam-mwf-0.5.0";
+
+$KAZ['root'] = $KAZAAM_ROOT;
+
+Then use this value in each site-config.php file, like:
+
+// Full path to the virtual host's base directory relative to Apache's
+// DocumentRoot setting. This needs to be set to "" for virtual hosts
+// in the live code branch.
+$WEBSITE_ROOT = "$KAZAAM_ROOT/develop/kazaam-sitetpl";
+
+------------------------------------------------------------------
+
+Updating from one version of Kazaam to a newer version.
+
+Use Kdiff3 to look at the contents of each configuration file to
+check for any modifications that have been made.
+
+Keep original const-var names for backward compatibility.
+
+If possible, all websites developed with previous versions of
+kazaam-mwf should also work with any newer versions of Kazaam-mwf.
+
+Kdiff3 a previous version of Kazaam-mwf with a newer version of Kazaam-mwf.
+Apply the differences to your working websites/develop directory structure.
+
+These differences should then be propogated into the intermediate
+and live directory structures as development takes place.
+
+------------------------------------------------------------------
+
+site-config.php:
+
+To use another name for a const-var in site-config.php, do the following:
+
+Keep the original const-var name, and assign the original name to the new
+const-var name, like:
+
+ // path to module specific config files - original name
+ $MODULE_CONFIG = "../local/incs";
+
+ // $MODULE_CONFIG synonym. Added in kmwf x.x.5.x
+ $  NEW_CONFIG_VAR1 = $MODULE_CONFIG;
+
+ // $MODULE_CONFIG synonym. Added in kmwf x.x.7.x
+ $  NEW_CONFIG_VAR2 = $MODULE_CONFIG;
+
+ // $MODULE_CONFIG synonym. Added in kmwf x.x.9.x
+ $  NEW_CONFIG_VAR3 = $MODULE_CONFIG;
+
+Note: don't chain new const-var declarations together, as this can
+get messy. Each new const-var name should only depend on the value
+in the original const-var that it replaces.
+
+This should allow for the adding of new const-var names, without
+breaking existing code that uses the old original const-var names.
+
+------------------------------------------------------------------
+
+add the following sub-dirs to a modules layout:
+
+admin-classes, admin-images and admin-incs;
+
+new-module
+└── local
+    ├── admin-classes
+    ├── admin-images
+    ├── admin-incs
+    ├── classes
+    ├── images
+    └── incs
+
+add the following path variables to site-config.php:
+
+/* ------------------------------------------- */
+ // module-specific admin pages shared files
+
+ // path to module specific admin pages config files
+ $MODULE_ADMIN_CONFIG = "../local/admin-incs";
+
+ // path to this module's admin pages local file content
+ $MODULE_ADMIN_PATH = "../local/admin-incs/mod";
+
+ // path to this module's admin pages local images
+ $LOCAL_ADMIN_IMAGES = "../local/admin-images";
+
+ // path to this module's admin pages local include files
+ $LOCAL_ADMIN_INCS = "../local/admin-incs";
+
+ // path to this module's admin pages local class files
+ $LOCAL_ADMIN_CLASSES = "../local/admin-classes";
+
+/* ------------------------------------------- */
+
+------------------------------------------------------------------
+
+Create a new 'bare-bones' kazaam-sitetpl website template, with
+minimal contents.
+
+------------------------------------------------------------------
+
+* use SQLite for admin session cookies.
+
+* use MySQL for website page sessions.
+
+------------------------------------------------------------------

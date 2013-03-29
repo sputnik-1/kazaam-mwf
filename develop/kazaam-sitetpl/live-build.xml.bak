@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+
+<project name="kazaam-sitetpl"
+         default="finished" basedir=".">
+
+  <target name="t1">
+    <echo>Copying kazaam-sitetpl intermediate files
+            to live directory...
+    </echo>
+
+    <echo>Except the following files:
+/shared/incs/domain.* files...
+/shared-host/incs/*.* symbolic link files...
+    </echo>
+
+    <echo>Please wait. This could take some time
+    </echo>
+
+    <copy todir="../../live/kazaam-sitetpl"
+          overwrite="true">
+
+      <!-- Fileset for all files to be copied -->
+      <fileset dir=".">
+        <include name="**" />
+
+        <!-- don't overwrite domain.* files -->
+        <!-- each website's code branch has it's own domain.* files
+             with specific settings -->
+        <exclude name="**/domain.*" />
+
+        <!-- do not copy these directories for now -->
+        <!-- shared-host contains symbolic link files
+             so we don't want to overwrite them with REAL files -->
+        <exclude name="**/shared-host/**" />
+
+        <exclude name="**/new-ext-module/**" />
+        <exclude name="**/new-module/**" />
+        <exclude name="**/website-docs/" />
+        <exclude name="**/tmp-backups/" />
+
+        <!-- do not copy any of these files
+             to the live directory -->
+        <exclude name="**/*.BASH" />
+        <exclude name="**/*.bsh" />
+        <exclude name="**/*.NOTES" />
+        <exclude name="**/robots.*" />
+        <exclude name="**/*.bak" />
+        <exclude name="**/*.xml" />
+
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="finished" depends="t1">
+    <echo msg="All intermediate files copied
+to live directory OK!" />
+  </target>
+
+</project>

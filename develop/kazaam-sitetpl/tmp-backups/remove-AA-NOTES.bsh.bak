@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Bash script to erase a given file
+# that lives in a tree of sub-directories.
+# -okdir will prompt before removing the file.
+
+#------------------------------------------------------#
+
+echo
+echo "running find . -name 'AA-NOTE.bak' -okdir rm '{}' \;"
+find . -name 'AA-NOTE.bak' -okdir rm '{}' \;
+
+#------------------------------------------------------#
+
+exit 0

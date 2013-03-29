@@ -1,0 +1,184 @@
+<?xml version="1.0" ?>
+
+<!--
+
+Phing script to create a new website,
+by copying the kazaam-sitetpl website template,
+to a new directory in the develop code branch.
+
+to run it use:
+
+# phing -f create-new-website.xml
+
+in the CWD of the above script (the develop code branch).
+
+Tell phing the name of the new website you want to create,
+and phing will do it for you.
+
+-->
+
+<project name="Create new website"
+         default="finished" basedir=".">
+
+  <target name="t1">
+    <echo></echo>
+    <input propertyname="websiteName">
+Please enter name of new website:</input>
+    <echo>Creating new kazaam '${websiteName}' website</echo>
+  </target>
+
+
+  <!-- copy 'kazaam-sitetpl' website template
+       to the ${websiteName} directory -->
+  <target name="t2" depends="t1">
+
+    <echo msg="Copying kazaam-sitetpl website template
+to new '${websiteName}' website directory..." />
+
+    <echo msg="" />
+    <echo msg="Please wait. This could take some time..." />
+    <echo msg="" />
+
+    <copy todir="${websiteName}">
+      <!-- Fileset for all files to be copied -->
+      <fileset dir="kazaam-sitetpl">
+        <include name="**/*" />
+        <!-- exclude name="**/about.*" /-->
+      </fileset>
+    </copy>
+  </target>
+
+
+  <!-- change text strings in all files in newly created
+       ${websiteName} directory to work with this
+       new website directory -->
+  <target name="t3" depends="t2">
+    <echo msg="replacing 'kazaam-sitetpl' text with '${websiteName}'" />
+
+    <reflexive>
+      <fileset dir="${websiteName}">
+        <include name="**/*" />
+      </fileset>
+
+      <filterchain>
+        <replaceregexp>
+          <regexp pattern="kazaam-sitetpl" replace="${websiteName}" />
+        </replaceregexp>
+      </filterchain>
+
+    </reflexive>
+
+  </target>
+
+
+  <target name="t4" depends="t3">
+    <echo msg="New kazaam website '${websiteName}' created OK!" />
+  </target>
+
+
+  <!-- initialise intermediate directory
+       with domain.conf.php files -->
+
+  <!-- copy '${websiteName}/shared/incs/domain.conf.php
+       files to intermediate/${websiteName}/shared/incs/
+       directory -->
+
+  <target name="t5" depends="t4">
+    <echo msg="Copying domain.conf.php files to new
+'intermediate/${websiteName}/shared/incs/' directory..." />
+
+    <copy todir="../intermediate/${websiteName}/shared/incs/">
+      <!-- Fileset for all files to be copied -->
+      <fileset dir="./${websiteName}/shared/incs/">
+        <include name="**/domain.conf.php*" />
+        <!-- exclude name="**/about.*" /-->
+      </fileset>
+    </copy>
+  </target>
+
+
+  <!-- change text strings in domain.conf.php files
+       in newly created ${websiteName} directory,
+       to work with this new website -->
+
+  <target name="t6" depends="t5">
+    <echo msg="replacing 'develop' text with 'intermediate'" />
+    <echo msg="replacing 'DEVELOPMENT' text with 'INTERMEDIATE'" />
+
+    <reflexive>
+      <fileset dir="../intermediate/${websiteName}/shared/incs/">
+        <include name="**/domain.conf.php*" />
+      </fileset>
+
+      <filterchain>
+        <replaceregexp>
+          <regexp pattern="develop\/${websiteName}"
+                  replace="intermediate/${websiteName}" />
+          <regexp pattern="DEVELOPMENT" replace="INTERMEDIATE" />
+        </replaceregexp>
+      </filterchain>
+
+    </reflexive>
+
+  </target>
+
+
+  <!-- initialise live directory
+       with domain.conf.php files -->
+
+  <!-- copy '${websiteName}/shared/incs/domain.conf.php
+       files to live/${websiteName}/shared/incs/
+       directory -->
+
+  <target name="t7" depends="t6">
+    <echo msg="Copying domain.conf.php files to new
+'live/${websiteName}/shared/incs/' directory..." />
+
+    <copy todir="../live/${websiteName}/shared/incs/">
+      <!-- Fileset for all files to be copied -->
+      <fileset dir="./${websiteName}/shared/incs/">
+        <include name="**/domain.conf.php*" />
+        <!-- exclude name="**/about.*" /-->
+      </fileset>
+    </copy>
+  </target>
+
+
+  <!-- change text strings in domain.conf.php files
+       in newly created ${websiteName} directory,
+       to work with this new website -->
+
+  <target name="t8" depends="t7">
+    <echo msg="replacing 'develop' text with 'live'" />
+    <echo msg="replacing 'DEVELOPMENT' text with 'LIVE'" />
+
+    <reflexive>
+      <fileset dir="../live/${websiteName}/shared/incs/">
+        <include name="**/domain.conf.php*" />
+      </fileset>
+
+      <filterchain>
+        <replaceregexp>
+          <regexp pattern="develop\/${websiteName}"
+                  replace="live/${websiteName}" />
+          <regexp pattern="DEVELOPMENT" replace="LIVE" />
+        </replaceregexp>
+      </filterchain>
+
+    </reflexive>
+
+  </target>
+
+
+  <target name="finished" depends="t8">
+    <echo msg="New kazaam website '${websiteName}' created OK!" />
+
+    <echo msg="intermediate directory for new kazaam website
+'${websiteName}' created OK!" />
+
+    <echo msg="live directory for new kazaam website
+'${websiteName}' created OK!" />
+  </target>
+
+
+</project>

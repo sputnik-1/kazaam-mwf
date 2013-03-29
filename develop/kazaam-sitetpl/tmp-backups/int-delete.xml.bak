@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+
+<project name="kazaam-sitetpl"
+         default="finished" basedir=".">
+
+  <target name="t1">
+    <echo>Deleting all files in kazaam-sitetpl
+            intermediate directory...
+    </echo>
+
+    <echo>Except the following files:
+/shared/incs/domain.* files...
+/shared-host/incs/*.* symbolic link files...
+    </echo>
+
+    <echo>Please wait. This could take some time
+    </echo>
+
+    <delete includeemptydirs="true">
+      <!-- Fileset for all files to be deleted -->
+      <fileset dir="../../intermediate/kazaam-sitetpl">
+        <include name="**" />
+
+        <!-- do not delete domain.* files -->
+        <!-- each website's code branch has it's own domain.* files
+             with specific settings -->
+        <exclude name="**/domain.*" />
+        <exclude name="**/tmp-backups/domain.*" />
+
+        <!-- also do not delete these directories -->
+        <!-- this directory contains symbolic links that are needed -->
+        <exclude name="**/shared-host/**" />
+
+        <!-- also do not delete these example files for now -->
+        <exclude name="**/file1.*" />
+        <exclude name="**/file2.*" />
+
+      </fileset>
+    </delete>
+  </target>
+
+  <target name="finished" depends="t1">
+    <echo msg="All files in kazaam-sitetpl
+intermediate directory deleted OK!" />
+  </target>
+
+</project>

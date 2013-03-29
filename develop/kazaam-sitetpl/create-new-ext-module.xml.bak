@@ -1,0 +1,322 @@
+<?xml version="1.0" ?>
+
+<!--
+
+Phing script to create a new website module,
+with external body content, from kazaam's
+'new-ext-module' (module template) directory.
+
+to run it use:
+
+# phing -f create-new-ext-module.xml
+
+in the CWD of the above script.
+
+Tell phing the name of the new module you want to create,
+and phing will do it for you.
+
+-->
+
+<project name="Create new external-content website module"
+         default="meta-menu-created" basedir=".">
+
+  <target name="get-module-name">
+    <input propertyname="moduleName">
+Please enter new module name:</input>
+    <echo>Creating new kazaam '${moduleName}' module</echo>
+  </target>
+
+
+  <!-- copy 'new-ext-module' template
+       to the ${moduleName} directory -->
+  <target name="copy-module-files"
+          depends="get-module-name">
+
+    <echo msg="Copying files to new '${moduleName}'
+module directory..." />
+
+    <copy todir="${moduleName}">
+      <!-- Fileset for all files to be copied -->
+      <fileset dir="new-ext-module">
+        <include name="**/*" />
+        <!-- exclude name="**/about.*" /-->
+      </fileset>
+    </copy>
+
+    <!-- ================================= -->
+
+    <!-- rename new-ext-module.php
+         to ${moduleName}.php -->
+    <property name="path1"
+              value="${moduleName}/anyuser" />
+
+    <move file="${path1}/new-ext-module.php"
+          tofile="${path1}/${moduleName}.php"
+          overwrite="true" />
+
+    <move file="${path1}/new-ext-module.php.bak"
+          tofile="${path1}/${moduleName}.php.bak"
+          overwrite="true" />
+
+    <!-- rename backup directory filenames -->
+    <property name="path2"
+              value="${moduleName}/anyuser/tmp-backups" />
+
+    <move file="${path2}/new-ext-module.php"
+          tofile="${path2}/${moduleName}.php"
+          overwrite="true" />
+
+    <move file="${path2}/new-ext-module.php.bak"
+          tofile="${path2}/${moduleName}.php.bak"
+          overwrite="true" />
+
+    <!-- ================================= -->
+
+    <!-- rename new-ext-module.conf.php
+         to ${moduleName}.conf.php -->
+    <property name="path3"
+              value="${moduleName}/local/incs" />
+
+    <move file="${path3}/new-ext-module.conf.php"
+          tofile="${path3}/${moduleName}.conf.php"
+          overwrite="true" />
+
+    <move file="${path3}/new-ext-module.conf.php.bak"
+          tofile="${path3}/${moduleName}.conf.php.bak"
+          overwrite="true" />
+
+    <!-- rename backup directory filenames -->
+    <property name="path4"
+              value="${moduleName}/local/incs/tmp-backups" />
+
+    <move file="${path4}/new-ext-module.conf.php"
+          tofile="${path4}/${moduleName}.conf.php"
+          overwrite="true" />
+
+    <move file="${path4}/new-ext-module.conf.php.bak"
+          tofile="${path4}/${moduleName}.conf.php.bak"
+          overwrite="true" />
+
+    <!-- ================================= -->
+
+    <!-- rename new-ext-module-menu.php
+         to ${moduleName}-menu.php -->
+    <property name="path5"
+              value="${moduleName}/local/incs/mod" />
+
+    <move file="${path5}/new-ext-module-menu.php"
+          tofile="${path5}/${moduleName}-menu.php"
+          overwrite="true" />
+
+    <move file="${path5}/new-ext-module-menu.php.bak"
+          tofile="${path5}/${moduleName}-menu.php.bak"
+          overwrite="true" />
+
+    <!-- rename backup directory filenames -->
+    <property name="path6"
+              value="${moduleName}/local/incs/mod/tmp-backups" />
+
+    <move file="${path6}/new-ext-module-menu.php"
+          tofile="${path6}/${moduleName}-menu.php"
+          overwrite="true" />
+
+    <move file="${path6}/new-ext-module-menu.php.bak"
+          tofile="${path6}/${moduleName}-menu.php.bak"
+          overwrite="true" />
+
+    <!-- ================================= -->
+
+    <!-- rename new-ext-module-right-menu.php
+         to ${moduleName}-right-menu.php -->
+    <property name="path7"
+              value="${moduleName}/local/incs/mod" />
+
+    <move file="${path7}/new-ext-module-right-menu.php"
+          tofile="${path7}/${moduleName}-right-menu.php"
+          overwrite="true" />
+
+    <move file="${path7}/new-ext-module-right-menu.php.bak"
+          tofile="${path7}/${moduleName}-right-menu.php.bak"
+          overwrite="true" />
+
+    <!-- rename backup directory filenames -->
+    <property name="path8"
+              value="${moduleName}/local/incs/mod/tmp-backups" />
+
+    <move file="${path8}/new-ext-module-right-menu.php"
+          tofile="${path8}/${moduleName}-right-menu.php"
+          overwrite="true" />
+
+    <move file="${path8}/new-ext-module-right-menu.php.bak"
+          tofile="${path8}/${moduleName}-right-menu.php.bak"
+          overwrite="true" />
+
+    <!-- ================================= -->
+
+    <!-- rename new-ext-module.cont.php
+         to ${moduleName}.cont.php -->
+    <property name="path9"
+              value="${moduleName}/anyuser" />
+
+    <move file="${path9}/new-ext-module.cont.php"
+          tofile="${path9}/${moduleName}.cont.php"
+          overwrite="true" />
+
+    <move file="${path9}/new-ext-module.cont.php.bak"
+          tofile="${path9}/${moduleName}.cont.php.bak"
+          overwrite="true" />
+
+    <!-- rename backup directory filenames -->
+    <property name="path10"
+              value="${moduleName}/anyuser/tmp-backups" />
+
+    <move file="${path10}/new-ext-module.cont.php"
+          tofile="${path10}/${moduleName}.cont.php"
+          overwrite="true" />
+
+    <move file="${path10}/new-ext-module.cont.php.bak"
+          tofile="${path10}/${moduleName}.cont.php.bak"
+          overwrite="true" />
+
+    <!-- ================================= -->
+
+  </target>
+
+
+  <!-- remove the new-ext-module* template files
+       from the newly created ${moduleName} module -->
+  <target name="clean-up" depends="copy-module-files">
+    <echo msg="Cleaning up unnecessary template files" />
+
+    <delete>
+      <!-- Fileset for all files to be deleted -->
+      <fileset dir="${moduleName}">
+        <include name="**/new-ext-module*" />
+        <include name="**/tmp-backups/new-ext-module*" />
+      </fileset>
+    </delete>
+
+  </target>
+
+
+  <!-- change text strings in all files in newly created
+       ${moduleName} directory to work with this
+       new module directory -->
+  <target name="replace-module-text" depends="clean-up">
+
+    <echo msg="replacing 'new-ext-module' text
+with '${moduleName}'" />
+
+    <echo msg="replacing 'New Ext Module' text
+with '${moduleName}'" />
+
+    <reflexive>
+      <fileset dir="${moduleName}">
+        <include name="**/*" />
+      </fileset>
+
+      <filterchain>
+        <replaceregexp>
+          <regexp pattern="new-ext-module"
+                  replace="${moduleName}" />
+
+          <regexp pattern="New Ext Module"
+                  replace="${moduleName}" />
+        </replaceregexp>
+      </filterchain>
+
+    </reflexive>
+
+  </target>
+
+
+  <target name="module-created"
+          depends="replace-module-text">
+    <echo msg="New kazaam module '${moduleName}' created OK!" />
+  </target>
+
+
+  <!-- create the meta-menu for the new module -->
+
+  <target name="create-ext-meta-menu"
+          depends="module-created">
+    <echo></echo>
+    <echo>Creating meta-menu for new kazaam
+module '${moduleName}'</echo>
+  </target>
+
+
+  <target name="copy-meta-menu-files"
+          depends="create-ext-meta-menu">
+
+    <echo msg="Copying 'new-ext-module.php' (meta-menu
+template files) to '${moduleName}.php'" />
+
+    <!-- copy './shared/meta-menus/new-ext-module.php'
+         meta-menu template file to '${moduleName}.php' -->
+    <property name="path11"
+              value="./shared/meta-menus" />
+
+    <copy file="${path11}/new-ext-module.php"
+          tofile="${path11}/${moduleName}.php"
+          overwrite="true"/>
+
+    <copy file="${path11}/new-ext-module.php.bak"
+          tofile="${path11}/${moduleName}.php.bak"
+          overwrite="true"/>
+
+    <!-- copy backup directory files -->
+    <property name="path12"
+              value="./shared/meta-menus/tmp-backups" />
+
+    <copy file="${path12}/new-ext-module.php"
+          tofile="${path12}/${moduleName}.php"
+          overwrite="true"/>
+
+    <copy file="${path12}/new-ext-module.php.bak"
+          tofile="${path12}/${moduleName}.php.bak"
+          overwrite="true"/>
+
+  </target>
+
+
+  <!-- tweak text strings in newly created
+       ${moduleName}.php files -->
+  <target name="replace-meta-menu-text"
+          depends="copy-meta-menu-files">
+
+    <echo msg="replacing 'new-ext-module' text
+with '${moduleName}'" />
+
+    <echo msg="replacing 'New Ext Module' text
+with '${moduleName}'" />
+
+    <reflexive>
+      <fileset dir="./shared/meta-menus/">
+        <include name="${moduleName}.*" />
+        <include name="**/tmp-backups/${moduleName}.*" />
+      </fileset>
+
+      <filterchain>
+        <replaceregexp>
+          <regexp pattern="new-ext-module"
+                  replace="${moduleName}" />
+
+          <regexp pattern="New Ext Module"
+                  replace="${moduleName}" />
+        </replaceregexp>
+      </filterchain>
+
+    </reflexive>
+
+  </target>
+
+
+  <target name="meta-menu-created"
+          depends="replace-meta-menu-text">
+    <echo msg="meta-menu for new kazaam module
+'${moduleName}' created OK!" />
+  </target>
+
+</project>
+

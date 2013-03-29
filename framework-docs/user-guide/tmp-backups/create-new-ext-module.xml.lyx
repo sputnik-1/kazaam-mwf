@@ -1,0 +1,2024 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+%This preamble is designed to ensure that the document prints
+% out as advertised. If you mess with this preamble,
+% parts of the document may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+\usepackage{ifpdf} % part of the hyperref bundle
+\ifpdf % if pdflatex is used
+
+ % set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+
+ % link all cross references and URLs in pdf output
+ \usepackage[colorlinks=true, bookmarks, bookmarksnumbered,
+  bookmarksopen, bookmarksopenlevel=2,
+  linkcolor=blue, citecolor=black, urlcolor=blue, filecolor=blue,
+  pdfpagelayout=OneColumn, pdfnewwindow=true,
+  pdfstartview=XYZ, plainpages=false, pdfpagelabels,
+  pdfauthor={LyX Team}, pdftex,
+  pdftitle={Introduction to LyX},pdfsubject={LyX-documentation Intro},
+  pdfkeywords={LyX, documentation}]{hyperref}
+ 
+\else % if dvi or ps is produced
+
+ % link all cross references and URLs in dvi output
+ \usepackage[ps2pdf]{hyperref}
+
+\fi % end if pdflatex is used
+
+ % the pages of the TOC are numbered roman
+ % and a pdf-bookmark for the TOC is added
+ \pagenumbering{roman}
+ \let\myTOC\tableofcontents
+ \renewcommand\tableofcontents{%
+   \pdfbookmark[1]{Contents}{}
+   \myTOC
+   \cleardoublepage
+   \pagenumbering{arabic} }
+
+% redefine the \LyX macro for PDF bookmarks
+\def\LyX{\texorpdfstring{%
+  L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX }}
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize 12
+\spacing single
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout LyX-Code
+
+\family roman
+\series bold
+create-new-ext-module.xml
+\family default
+
+\newline
+
+\newline
+000 <?xml version="1.0" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <!--
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 Phing script to create a new website module,
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 with external body content, from kazaam's
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 'new-ext-module' (module template) directory.
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 to run it use:
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 # phing -f create-new-ext-module.xml
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 in the CWD of the above script.
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 Tell phing the name of the new module you want to create,
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 and phing will do it for you.
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <project name="Create new external-content website module"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000          default="meta-menu-created" basedir=".">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <target name="get-module-name">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <input propertyname="moduleName">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 Please enter new module name:</input>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo>Creating new kazaam '${moduleName}' module</echo>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <!-- copy 'new-ext-module' template
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000      to the ${moduleName} directory -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <target name="copy-module-files"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         depends="get-module-name">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo msg="Copying files to new '${moduleName}'
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 module directory..." />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <copy todir="${moduleName}">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     <!-- Fileset for all files to be copied -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     <fileset dir="new-ext-module">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       <include name="**/*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       <!-- exclude name="**/about.*" /-->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     </fileset>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   </copy>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- ================================= -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- rename new-ext-module.php
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000        to ${moduleName}.php -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path1"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="${moduleName}/anyuser" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path1}/new-ext-module.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path1}/${moduleName}.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path1}/new-ext-module.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path1}/${moduleName}.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- rename backup directory filenames -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path2"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="${moduleName}/anyuser/tmp-backups" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path2}/new-ext-module.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path2}/${moduleName}.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path2}/new-ext-module.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path2}/${moduleName}.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- ================================= -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- rename new-ext-module.conf.php
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000        to ${moduleName}.conf.php -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path3"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="${moduleName}/local/incs" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path3}/new-ext-module.conf.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path3}/${moduleName}.conf.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path3}/new-ext-module.conf.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path3}/${moduleName}.conf.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- rename backup directory filenames -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path4"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="${moduleName}/local/incs/tmp-backups" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path4}/new-ext-module.conf.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path4}/${moduleName}.conf.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path4}/new-ext-module.conf.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path4}/${moduleName}.conf.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- ================================= -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- rename new-ext-module-menu.php
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000        to ${moduleName}-menu.php -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path5"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="${moduleName}/local/incs/mod" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path5}/new-ext-module-menu.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path5}/${moduleName}-menu.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path5}/new-ext-module-menu.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path5}/${moduleName}-menu.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- rename backup directory filenames -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path6"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="${moduleName}/local/incs/mod/tmp-backups" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path6}/new-ext-module-menu.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path6}/${moduleName}-menu.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path6}/new-ext-module-menu.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path6}/${moduleName}-menu.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- ================================= -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- rename new-ext-module-right-menu.php
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000        to ${moduleName}-right-menu.php -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path7"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="${moduleName}/local/incs/mod" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path7}/new-ext-module-right-menu.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path7}/${moduleName}-right-menu.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path7}/new-ext-module-right-menu.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path7}/${moduleName}-right-menu.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- rename backup directory filenames -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path8"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="${moduleName}/local/incs/mod/tmp-backups" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path8}/new-ext-module-right-menu.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path8}/${moduleName}-right-menu.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path8}/new-ext-module-right-menu.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path8}/${moduleName}-right-menu.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- ================================= -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- rename new-ext-module.cont.php
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000        to ${moduleName}.cont.php -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path9"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="${moduleName}/anyuser" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path9}/new-ext-module.cont.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path9}/${moduleName}.cont.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path9}/new-ext-module.cont.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path9}/${moduleName}.cont.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- rename backup directory filenames -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path10"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="${moduleName}/anyuser/tmp-backups" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path10}/new-ext-module.cont.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path10}/${moduleName}.cont.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <move file="${path10}/new-ext-module.cont.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path10}/${moduleName}.cont.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- ================================= -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <!-- remove the new-ext-module* template files
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000      from the newly created ${moduleName} module -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <target name="clean-up" depends="copy-module-files">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo msg="Cleaning up unnecessary template files" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <delete>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     <!-- Fileset for all files to be deleted -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     <fileset dir="${moduleName}">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       <include name="**/new-ext-module*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       <include name="**/tmp-backups/new-ext-module*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     </fileset>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   </delete>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <!-- change text strings in all files in newly created
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000      ${moduleName} directory to work with this
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000      new module directory -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <target name="replace-module-text" depends="clean-up">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo msg="replacing 'new-ext-module' text
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 with '${moduleName}'" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo msg="replacing 'New Ext Module' text
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 with '${moduleName}'" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <reflexive>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     <fileset dir="${moduleName}">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       <include name="**/*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     </fileset>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     <filterchain>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       <replaceregexp>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         <regexp pattern="new-ext-module"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000                 replace="${moduleName}" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         <regexp pattern="New Ext Module"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000                 replace="${moduleName}" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       </replaceregexp>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     </filterchain>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   </reflexive>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <target name="module-created"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         depends="replace-module-text">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo msg="New kazaam module '${moduleName}' created OK!" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <!-- create the meta-menu for the new module -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <target name="create-ext-meta-menu"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         depends="module-created">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo></echo>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo>Creating meta-menu for new kazaam
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 module '${moduleName}'</echo>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <target name="copy-meta-menu-files"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         depends="create-ext-meta-menu">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo msg="Copying 'new-ext-module.php' (meta-menu
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 template files) to '${moduleName}.php'" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- copy './shared/meta-menus/new-ext-module.php'
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000        meta-menu template file to '${moduleName}.php' -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path11"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="./shared/meta-menus" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <copy file="${path11}/new-ext-module.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path11}/${moduleName}.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true"/>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <copy file="${path11}/new-ext-module.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path11}/${moduleName}.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true"/>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <!-- copy backup directory files -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <property name="path12"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000             value="./shared/meta-menus/tmp-backups" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <copy file="${path12}/new-ext-module.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path12}/${moduleName}.php"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true"/>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <copy file="${path12}/new-ext-module.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         tofile="${path12}/${moduleName}.php.bak"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         overwrite="true"/>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <!-- tweak text strings in newly created
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000      ${moduleName}.php files -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <target name="replace-meta-menu-text"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         depends="copy-meta-menu-files">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo msg="replacing 'new-ext-module' text
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 with '${moduleName}'" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo msg="replacing 'New Ext Module' text
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 with '${moduleName}'" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <reflexive>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     <fileset dir="./shared/meta-menus/">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       <include name="${moduleName}.*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       <include name="**/tmp-backups/${moduleName}.*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     </fileset>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     <filterchain>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       <replaceregexp>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         <regexp pattern="new-ext-module"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000                 replace="${moduleName}" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         <regexp pattern="New Ext Module"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000                 replace="${moduleName}" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000       </replaceregexp>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000     </filterchain>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   </reflexive>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 <target name="meta-menu-created"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000         depends="replace-meta-menu-text">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000   <echo msg="meta-menu for new kazaam module
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 '${moduleName}' created OK!" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+000 </project>
+\end_layout
+
+\end_body
+\end_document

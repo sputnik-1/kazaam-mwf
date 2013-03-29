@@ -1,0 +1,31 @@
+# kazaam-mwf example robots.txt file: last updated: 2008-10-22
+
+# disallow psbot/0.1 (+http://www.picsearch.com/bot.html) to index any pictures
+User-agent: psbot
+Disallow: /
+
+#############################
+
+# disallow stress test
+User-agent: stress-agent
+Disallow: /
+
+#############################
+
+# applies to all robots
+User-agent: *
+#
+# anything not explicity excluded is allowed
+#
+# exclude directories below from all robots
+Disallow: /docs/
+Disallow: /new-module/ 
+Disallow: /page-templates/ 
+Disallow: /shared/ 
+Disallow: /shared-host/ 
+Disallow: /tmp-backups/ 
+
+# exclude files below from all robots
+Disallow: *.conf 
+
+# end of robots.txt file

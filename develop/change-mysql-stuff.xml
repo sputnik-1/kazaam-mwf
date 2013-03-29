@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<project name="changing mysql username and password" default="main" basedir=".">
+
+  <target name="main">
+
+    <echo msg="changing mysql username and password" />
+
+    <reflexive>
+      <fileset dir=".">
+        <include name="**/*" />
+
+        <exclude name="tmp-backups/**" />
+        <exclude name="*.xml" />
+        <exclude name="*.xml.bak" />
+        <exclude name="**/*.xml" />
+        <exclude name="**/*.xml.bak" />
+      </fileset>
+
+      <filterchain>
+        <replaceregexp>
+          <regexp pattern="your-username" replace="mysql-username" />
+          <regexp pattern="your-password" replace="mysql-password" />
+        </replaceregexp>
+      </filterchain>
+
+    </reflexive>
+
+  </target>
+
+</project>

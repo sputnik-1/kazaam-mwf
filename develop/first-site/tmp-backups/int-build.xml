@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+
+<project name="first-site"
+         default="finished" basedir=".">
+
+  <target name="t1">
+    <echo>Copying first-site development files
+            to intermediate directory...
+    </echo>
+
+    <echo>Except the following files:
+/shared/incs/domain.* files...
+/shared-host/incs/*.* symbolic link files...
+    </echo>
+
+    <echo>Please wait. This could take some time
+    </echo>
+
+    <copy todir="../../intermediate/first-site"
+          overwrite="true">
+
+      <!-- Fileset for all files to be copied -->
+      <fileset dir=".">
+        <include name="**" />
+
+        <!-- don't overwrite domain.* files -->
+        <!-- each website's code branch has it's own domain.* files
+             with specific settings -->
+        <exclude name="**/domain.*" />
+
+        <!-- do not copy these directories for now -->
+        <!-- shared-host contains symbolic link files
+             so we don't want to overwrite them with REAL files -->
+        <exclude name="**/shared-host/**" />
+
+        <!-- also do not copy these example files for now -->
+        <exclude name="**/file1.*" />
+        <exclude name="**/file2.*" />
+
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="finished" depends="t1">
+    <echo msg="All development files copied
+to intermediate directory OK!" />
+  </target>
+
+</project>

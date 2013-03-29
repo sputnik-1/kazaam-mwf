@@ -1,0 +1,378 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+%This preamble is designed to ensure that the document prints
+% out as advertised. If you mess with this preamble,
+% parts of the document may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+\usepackage{ifpdf} % part of the hyperref bundle
+\ifpdf % if pdflatex is used
+
+ % set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+
+ % link all cross references and URLs in pdf output
+ \usepackage[colorlinks=true, bookmarks, bookmarksnumbered,
+  bookmarksopen, bookmarksopenlevel=2,
+  linkcolor=blue, citecolor=black, urlcolor=blue, filecolor=blue,
+  pdfpagelayout=OneColumn, pdfnewwindow=true,
+  pdfstartview=XYZ, plainpages=false, pdfpagelabels,
+  pdfauthor={LyX Team}, pdftex,
+  pdftitle={Introduction to LyX},pdfsubject={LyX-documentation Intro},
+  pdfkeywords={LyX, documentation}]{hyperref}
+ 
+\else % if dvi or ps is produced
+
+ % link all cross references and URLs in dvi output
+ \usepackage[ps2pdf]{hyperref}
+
+\fi % end if pdflatex is used
+
+ % the pages of the TOC are numbered roman
+ % and a pdf-bookmark for the TOC is added
+ \pagenumbering{roman}
+ \let\myTOC\tableofcontents
+ \renewcommand\tableofcontents{%
+   \pdfbookmark[1]{Contents}{}
+   \myTOC
+   \cleardoublepage
+   \pagenumbering{arabic} }
+
+% redefine the \LyX macro for PDF bookmarks
+\def\LyX{\texorpdfstring{%
+  L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX }}
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize 12
+\spacing single
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout LyX-Code
+
+\family roman
+\series bold
+int-delete.xml
+\family default
+\series default
+
+\newline
+
+\newline
+
+\series bold
+01 <?xml version="1.0" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+02
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+03 <project name="kazaam-sitetpl"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+04          default="finished" basedir=".">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+05
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+06 <target name="t1">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+07   <echo>Deleting all files in kazaam-sitetpl
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+08           intermediate directory...
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+09   </echo>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+10 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+11   <echo>Except the following files:
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+12 /shared/incs/domain.* files...
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+13 /shared-host/incs/*.* symbolic link files...
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+14   </echo>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+15
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+16   <echo>Please wait.
+ This could take some time
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+17   </echo>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+18
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+19   <delete includeemptydirs="true">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+20     <!-- Fileset for all files to be deleted -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+21     <fileset dir="../../intermediate/kazaam-sitetpl">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+22       <include name="**" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+23
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+24       <!-- do not delete domain.* files -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+25       <!-- each website's code branch has it's own domain.* files
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+26            with specific settings -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+27       <exclude name="**/domain.*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+28       <exclude name="**/tmp-backups/domain.*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+29
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+30       <!-- also do not delete these directories -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+31       <!-- this directory contains symbolic links that are needed -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+32       <exclude name="**/shared-host/**" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+33
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+34       <!-- also do not delete these example files for now -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+35       <exclude name="**/file1.*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+36       <exclude name="**/file2.*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+37     </fileset>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+38   </delete>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+39 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+40
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+41 <target name="finished" depends="t1">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+42   <echo msg="All files in kazaam-sitetpl
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+43 intermediate directory deleted OK!" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+44   </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+45
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+46 </project>
+\end_layout
+
+\end_body
+\end_document

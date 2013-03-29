@@ -1,0 +1,11 @@
+All include files under /develop/shared-host are used by *all*
+development websites on this server.
+
+Any modifications to files in /develop/shared-host will be applied to
+*all* development websites on this server.
+
+NOTE: live websites use another directory for these files:
+  /live/shared-host
+
+This enables updates to these files to be tested first, before being
+deployed to the live website directory.

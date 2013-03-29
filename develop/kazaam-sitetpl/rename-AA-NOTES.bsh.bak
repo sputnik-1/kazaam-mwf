@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Bash script to rename a given file
+# that lives in a tree of sub-directories.
+# -okdir will prompt before renaming the file.
+
+#------------------------------------------------------#
+
+echo
+echo "running find . -name 'AA-NOTE' -okdir mv '{}' 00-NOTE \;"
+find . -name 'AA-NOTE' -okdir mv '{}' 00-NOTE \;
+
+#------------------------------------------------------#
+
+exit 0

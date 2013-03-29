@@ -1,0 +1,58 @@
+PROGRAM LISTINGS
+----------------
+
+For program listings, use Lyx-code.
+
+For the program listing title heading (program name) use:
+
+Family: Roman
+
+Series: Bold
+
+
+For the code listing itself, use:
+
+Lyx Text style box:
+
+Family: Typewriter
+
+Series: Bold
+
+Program Comments:
+
+Use proper punctuation style. ie start the first word of each sentence
+with a capital letter. Use commas and full stops for punctuation.
+Keep comment lines short for PDF output.
+
+How to Add a New Program Listing:
+
+Make sure the lines in the source code are not to long.
+
+Open a new window to import the source code file.
+
+Use Insert->File->Plain Text to import the file into the new window.
+
+Save it as the program's 'filename.lyx' .
+
+Select the whole document with Ctrl-A.
+
+Change to the LyX-Code environment.
+
+Set the style as above.
+
+Add 00's to the start of each line.
+
+Format the document to match the original source code layout.
+
+Once the formatting is complete and OK, add line numbering in place of
+zeroes.
+
+When the document is finished, import it into the main manual.
+
+
+
+
+
+
+
+ 

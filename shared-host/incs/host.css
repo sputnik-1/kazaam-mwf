@@ -1,0 +1,16 @@
+ /* shared host CSS rules */
+
+ /* last updated: Mon Apr 23 19:06:29 BST 2007 */
+
+ #site_maintenance {
+  display: block;
+  width: 98%;
+  margin: 5px 5px;
+  padding: 1px 0;
+  font-family: sans;
+  font-size: 15px;
+  text-align: center;
+  color: red;
+  background: #ACDAE6;
+  border: 1px solid white; 
+ }

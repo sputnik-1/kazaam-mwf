@@ -1,0 +1,618 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+%This preamble is designed to ensure that the document prints
+% out as advertised. If you mess with this preamble,
+% parts of the document may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+\usepackage{ifpdf} % part of the hyperref bundle
+\ifpdf % if pdflatex is used
+
+ % set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+
+ % link all cross references and URLs in pdf output
+ \usepackage[colorlinks=true, bookmarks, bookmarksnumbered,
+  bookmarksopen, bookmarksopenlevel=2,
+  linkcolor=blue, citecolor=black, urlcolor=blue, filecolor=blue,
+  pdfpagelayout=OneColumn, pdfnewwindow=true,
+  pdfstartview=XYZ, plainpages=false, pdfpagelabels,
+  pdfauthor={LyX Team}, pdftex,
+  pdftitle={Introduction to LyX},pdfsubject={LyX-documentation Intro},
+  pdfkeywords={LyX, documentation}]{hyperref}
+ 
+\else % if dvi or ps is produced
+
+ % link all cross references and URLs in dvi output
+ \usepackage[ps2pdf]{hyperref}
+
+\fi % end if pdflatex is used
+
+ % the pages of the TOC are numbered roman
+ % and a pdf-bookmark for the TOC is added
+ \pagenumbering{roman}
+ \let\myTOC\tableofcontents
+ \renewcommand\tableofcontents{%
+   \pdfbookmark[1]{Contents}{}
+   \myTOC
+   \cleardoublepage
+   \pagenumbering{arabic} }
+
+% redefine the \LyX macro for PDF bookmarks
+\def\LyX{\texorpdfstring{%
+  L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX }}
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize 12
+\spacing single
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+01\InsetSpace ~
+<?php
+\end_layout
+
+\begin_layout Standard
+02\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+// database session management code
+\end_layout
+
+\begin_layout Standard
+03\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+// require "$SHARED_INCS/session.funcs.php";
+\end_layout
+
+\begin_layout Standard
+04\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+// session_start();
+\end_layout
+
+\begin_layout Standard
+05\InsetSpace ~
+?>
+\end_layout
+
+\begin_layout Standard
+06
+\end_layout
+
+\begin_layout Standard
+07\InsetSpace ~
+<!DOCTYPE html
+\end_layout
+
+\begin_layout Standard
+08\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+\end_layout
+
+\begin_layout Standard
+09\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+\end_layout
+
+\begin_layout Standard
+10
+\end_layout
+
+\begin_layout Standard
+11\InsetSpace ~
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+\end_layout
+
+\begin_layout Standard
+12\InsetSpace ~
+
+\end_layout
+
+\begin_layout Standard
+13\InsetSpace ~
+<head>
+\end_layout
+
+\begin_layout Standard
+14
+\end_layout
+
+\begin_layout Standard
+15\InsetSpace ~
+<title><?php echo $MODULE_NAME ?></title>
+\end_layout
+
+\begin_layout Standard
+16
+\end_layout
+
+\begin_layout Standard
+17\InsetSpace ~
+<?php require "$CONFIG_PATH/meta-info.php"; ?>
+\end_layout
+
+\begin_layout Standard
+18
+\end_layout
+
+\begin_layout Standard
+19\InsetSpace ~
+<?php /* for development purposes only */ ?>
+\end_layout
+
+\begin_layout Standard
+20\InsetSpace ~
+<style type="text/css">
+\end_layout
+
+\begin_layout Standard
+21\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+<?php require "$SITE_THEMES/site-css.php"; ?>
+\end_layout
+
+\begin_layout Standard
+22\InsetSpace ~
+</style>
+\end_layout
+
+\begin_layout Standard
+23
+\end_layout
+
+\begin_layout Standard
+24\InsetSpace ~
+<?php /* for live pages only */ ?>
+\end_layout
+
+\begin_layout Standard
+25\InsetSpace ~
+<!-- link rel="stylesheet" type="text/css"
+\end_layout
+
+\begin_layout Standard
+26\InsetSpace ~
+href="<?php /* echo $SITE_THEMES */ ?>/site-css.css" / -->
+\end_layout
+
+\begin_layout Standard
+27
+\end_layout
+
+\begin_layout Standard
+28\InsetSpace ~
+<!-- link rel="stylesheet" type="text/css"
+\end_layout
+
+\begin_layout Standard
+29\InsetSpace ~
+href="<?php echo $SHARED_HOST_INCS ?>/host.css" / -->
+\end_layout
+
+\begin_layout Standard
+30
+\end_layout
+
+\begin_layout Standard
+31\InsetSpace ~
+<?php /*
+\end_layout
+
+\begin_layout Standard
+32\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+needed to stop CSS validation error
+\end_layout
+
+\begin_layout Standard
+33\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+Eclipse PDT does not like this though.
+\end_layout
+
+\begin_layout Standard
+34\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+So may need to comment out for development code.
+\end_layout
+
+\begin_layout Standard
+35\InsetSpace ~
+*/ ?>
+\end_layout
+
+\begin_layout Standard
+36
+\end_layout
+
+\begin_layout Standard
+37\InsetSpace ~
+<!-- style type="text/css">
+\end_layout
+
+\begin_layout Standard
+38\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+<?php /* require "$SHARED_HOST_INCS/host.css"; */ ?>
+\end_layout
+
+\begin_layout Standard
+39\InsetSpace ~
+</style -->
+\end_layout
+
+\begin_layout Standard
+40
+\end_layout
+
+\begin_layout Standard
+41\InsetSpace ~
+<script type="text/javascript"
+\end_layout
+
+\begin_layout Standard
+42\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+src="<?php echo $SHARED_INCS ?>/site-js.js">
+\end_layout
+
+\begin_layout Standard
+43\InsetSpace ~
+</script>
+\end_layout
+
+\begin_layout Standard
+44
+\end_layout
+
+\begin_layout Standard
+45\InsetSpace ~
+<script type="text/javascript"
+\end_layout
+
+\begin_layout Standard
+46\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+src="<?php echo $SHARED_HOST_INCS ?>/x_core.js">
+\end_layout
+
+\begin_layout Standard
+47\InsetSpace ~
+</script>
+\end_layout
+
+\begin_layout Standard
+48
+\end_layout
+
+\begin_layout Standard
+49\InsetSpace ~
+<script type="text/javascript"
+\end_layout
+
+\begin_layout Standard
+50\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+src="<?php echo $SHARED_HOST_INCS ?>/x_event.js">
+\end_layout
+
+\begin_layout Standard
+51\InsetSpace ~
+</script>
+\end_layout
+
+\begin_layout Standard
+52
+\end_layout
+
+\begin_layout Standard
+53\InsetSpace ~
+<script type="text/javascript"
+\end_layout
+
+\begin_layout Standard
+54\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+src="<?php echo $SHARED_HOST_INCS ?>/host.js">
+\end_layout
+
+\begin_layout Standard
+55\InsetSpace ~
+</script>
+\end_layout
+
+\begin_layout Standard
+56
+\end_layout
+
+\begin_layout Standard
+57\InsetSpace ~
+<?php /*
+\end_layout
+
+\begin_layout Standard
+58\InsetSpace ~
+<!-- form checking functions -->
+\end_layout
+
+\begin_layout Standard
+59\InsetSpace ~
+<script type="text/javascript"
+\end_layout
+
+\begin_layout Standard
+60\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+src="<?php echo $SHARED_HOST_INCS ?>/form-check.js">
+\end_layout
+
+\begin_layout Standard
+61\InsetSpace ~
+</script>
+\end_layout
+
+\begin_layout Standard
+62\InsetSpace ~
+*/ ?>
+\end_layout
+
+\begin_layout Standard
+63
+\end_layout
+
+\begin_layout Standard
+64\InsetSpace ~
+<!-- IE 6.0 has a problem with this js code -->
+\end_layout
+
+\begin_layout Standard
+65\InsetSpace ~
+<!-- ajax core functions -->
+\end_layout
+
+\begin_layout Standard
+66\InsetSpace ~
+<!-- script type="text/javascript"
+\end_layout
+
+\begin_layout Standard
+67\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+src="<?php echo $SHARED_HOST_INCS ?>/kjax.js">
+\end_layout
+
+\begin_layout Standard
+68\InsetSpace ~
+</script -->
+\end_layout
+
+\begin_layout Standard
+69
+\end_layout
+
+\begin_layout Standard
+70\InsetSpace ~
+<?php
+\end_layout
+
+\begin_layout Standard
+71\InsetSpace ~
+// does this page use its own custom javascript file?
+\end_layout
+
+\begin_layout Standard
+72\InsetSpace ~
+if (isset($THIS_PAGE_JS)) {
+\end_layout
+
+\begin_layout Standard
+73\InsetSpace ~
+$javascript = <<<GEN_JS
+\end_layout
+
+\begin_layout Standard
+74\InsetSpace ~
+<script type="text/javascript"
+\end_layout
+
+\begin_layout Standard
+75\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+src="./$THIS_PAGE_JS">
+\end_layout
+
+\begin_layout Standard
+76\InsetSpace ~
+</script>
+\end_layout
+
+\begin_layout Standard
+77\InsetSpace ~
+GEN_JS;
+\end_layout
+
+\begin_layout Standard
+78
+\end_layout
+
+\begin_layout Standard
+79\InsetSpace ~
+echo $javascript;
+\end_layout
+
+\begin_layout Standard
+80\InsetSpace ~
+}
+\end_layout
+
+\begin_layout Standard
+81
+\end_layout
+
+\begin_layout Standard
+82\InsetSpace ~
+// does this page use its own custom CSS file?
+\end_layout
+
+\begin_layout Standard
+83\InsetSpace ~
+// for example and test pages ONLY
+\end_layout
+
+\begin_layout Standard
+84\InsetSpace ~
+// not for normal use
+\end_layout
+
+\begin_layout Standard
+85
+\end_layout
+
+\begin_layout Standard
+86\InsetSpace ~
+if (isset($THIS_PAGE_CSS)) {
+\end_layout
+
+\begin_layout Standard
+87\InsetSpace ~
+echo"
+\backslash
+n
+\backslash
+n";
+\end_layout
+
+\begin_layout Standard
+88\InsetSpace ~
+$css = <<<GEN_CSS
+\end_layout
+
+\begin_layout Standard
+89\InsetSpace ~
+<link rel="stylesheet" type="text/css"
+\end_layout
+
+\begin_layout Standard
+90\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+\InsetSpace ~
+href="./$THIS_PAGE_CSS" />
+\end_layout
+
+\begin_layout Standard
+91\InsetSpace ~
+GEN_CSS;
+\end_layout
+
+\begin_layout Standard
+92
+\end_layout
+
+\begin_layout Standard
+93\InsetSpace ~
+echo $css;
+\end_layout
+
+\begin_layout Standard
+94\InsetSpace ~
+}
+\end_layout
+
+\begin_layout Standard
+95
+\end_layout
+
+\begin_layout Standard
+96\InsetSpace ~
+?>
+\end_layout
+
+\begin_layout Standard
+97
+\end_layout
+
+\begin_layout Standard
+98\InsetSpace ~
+</head>
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,49 @@
+How to install Kazaam
+---------------------
+
+Pull the code from GitHub into a test directory that is in your Apache's
+DocumentRoot setting.
+
+If your Apache's DocumentRoot is set to:
+
+DocumentRoot /my-webserver/docs
+
+Then you will need to put kazaam-mwf somewhere like:
+
+/my-webserver/docs/kazaam-mwf 
+
+With your text editor go to 
+
+/kazaam-mwf/develop/kazaam-sitetpl/shared/incs/
+
+and open the domain.conf.php file for editing.
+
+Find the following code at lines 27-30:
+
+// Full path to the virtual host's base directory relative to Apache's
+// DocumentRoot setting. This needs to be set to "" for virtual hosts
+// in the live code branch.
+$WEBSITE_ROOT = "/KAR/MyGithubProjects/pending/PHP/kazaam-mwf/develop/kazaam-sitetpl";
+
+Now change the $WEBSITE_ROOT setting to match where you have installed kazaam-mwf
+
+So for the above DocumentRoot example this would be:
+
+$WEBSITE_ROOT = "/kazaam-mwf/develop/kazaam-sitetpl";
+
+Now save domain.conf.php and using your web browser go to:
+
+http://localhost/kazaam-mwf/develop/kazaam-sitetpl/home/anyuser/home.php
+
+You should now see the homepage for the kazaam website template. This is
+the basic website that gets copied when you want to create another
+website using the phing project build script create-new-website.xml.
+
+You will also need to change this for the intermediate code branch as well.
+
+$WEBSITE_ROOT = "/kazaam-mwf/intermediate/kazaam-sitetpl";
+
+If you get any problems please send me an email and I'll try to help you out.
+Please kindly mention KAZAAM MODULAR WEBSITE in the subject line of the email. 
+
+keith@karsites.net

@@ -1,0 +1,1197 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+%This preamble is designed to ensure that the document prints
+% out as advertised. If you mess with this preamble,
+% parts of the document may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+\usepackage{ifpdf} % part of the hyperref bundle
+\ifpdf % if pdflatex is used
+
+ % set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+
+ % link all cross references and URLs in pdf output
+ \usepackage[colorlinks=true, bookmarks, bookmarksnumbered,
+  bookmarksopen, bookmarksopenlevel=2,
+  linkcolor=blue, citecolor=black, urlcolor=blue, filecolor=blue,
+  pdfpagelayout=OneColumn, pdfnewwindow=true,
+  pdfstartview=XYZ, plainpages=false, pdfpagelabels,
+  pdfauthor={LyX Team}, pdftex,
+  pdftitle={Introduction to LyX},pdfsubject={LyX-documentation Intro},
+  pdfkeywords={LyX, documentation}]{hyperref}
+ 
+\else % if dvi or ps is produced
+
+ % link all cross references and URLs in dvi output
+ \usepackage[ps2pdf]{hyperref}
+
+\fi % end if pdflatex is used
+
+ % the pages of the TOC are numbered roman
+ % and a pdf-bookmark for the TOC is added
+ \pagenumbering{roman}
+ \let\myTOC\tableofcontents
+ \renewcommand\tableofcontents{%
+   \pdfbookmark[1]{Contents}{}
+   \myTOC
+   \cleardoublepage
+   \pagenumbering{arabic} }
+
+% redefine the \LyX macro for PDF bookmarks
+\def\LyX{\texorpdfstring{%
+  L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX }}
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize 12
+\spacing single
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout LyX-Code
+
+\family roman
+\series bold
+create-new-website.xml
+\family default
+
+\newline
+
+\newline
+01 <?xml version="1.0" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+02 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+03 <!--
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+04 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+05 Phing script to create a new website,
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+06 by copying the kazaam-sitetpl website template,
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+07 to a new directory in the develop code branch.
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+08 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+09 to run it use:
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+10 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+11 # phing -f create-new-website.xml
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+12 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+13 in the CWD of the above script (the develop code branch).
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+14 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+15 Tell phing the name of the new website you want to create,
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+16 and phing will do it for you.
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+17 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+18 -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+19 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+20 <project name="Create new website"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+21          default="finished" basedir=".">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+22 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+23 <target name="t1">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+24   <echo></echo>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+25   <input propertyname="websiteName">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+26 Please enter name of new website:</input>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+27   <echo>Creating new kazaam '${websiteName}' website</echo>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+28 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+29 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+30 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+31 <!-- copy 'kazaam-sitetpl' website template
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+32      to the ${websiteName} directory -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+33 <target name="t2" depends="t1">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+34 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+35   <echo msg="Copying kazaam-sitetpl website template
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+36 to new '${websiteName}' website directory..." />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+37 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+38   <echo msg="" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+39   <echo msg="Please wait.
+ This could take some time..." />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+40   <echo msg="" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+41 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+42   <copy todir="${websiteName}">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+43     <!-- Fileset for all files to be copied -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+44     <fileset dir="kazaam-sitetpl">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+45       <include name="**/*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+46       <!-- exclude name="**/about.*" /-->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+47     </fileset>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+48   </copy>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+49 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+50
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+51 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+52 <!-- change text strings in all files in newly created
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+53     ${websiteName} directory to work with this
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+54      new website directory -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+55 <target name="t3" depends="t2">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+56   <echo msg="replacing 'kazaam-sitetpl' text with
+\newline
+57 '${websiteName}'"
+ />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+58
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+59   <reflexive>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+60     <fileset dir="${websiteName}">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+61       <include name="**/*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+62     </fileset>
+\newline
+63
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+64     <filterchain>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+65       <replaceregexp>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+66         <regexp pattern="kazaam-sitetpl"
+\newline
+67                 replace="${website
+Name}" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+68       </replaceregexp>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+69     </filterchain>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+70 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+71   </reflexive>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+72 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+73 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+74
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+75 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+76 <target name="t4" depends="t3">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+77   <echo msg="New kazaam website '${websiteName}' created OK!" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+78 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+79
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+80
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+81 <!-- initialise intermediate directory 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+82      with domain.conf.php files -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+83 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+84 <!-- copy '${websiteName}/shared/incs/domain.conf.php
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+85      files to intermediate/${websiteName}/shared/incs/
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+86      directory -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+87 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+88 <target name="t5" depends="t4">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+89   <echo msg="Copying domain.conf.php files to new
+\newline
+90 'intermediate/${websiteName
+}/shared/incs/' directory..." />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+91
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+92   <copy todir="../intermediate/${websiteName}/shared/incs/">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+93     <!-- Fileset for all files to be copied -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+94     <fileset dir="./${websiteName}/shared/incs/">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+95       <include name="**/domain.conf.php*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+96       <!-- exclude name="**/about.*" /-->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+97     </fileset>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+98   </copy>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+99 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+100
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+101 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+102 <!-- change text strings in domain.conf.php files
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+103      in newly created ${websiteName} directory,
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+104      to work with this new website -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+105 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+106 <target name="t6" depends="t5">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+107   <echo msg="replacing 'develop' text with 'intermediate'" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+108   <echo msg="replacing 'DEVELOPMENT' text with 'INTERMEDIATE'" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+109 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+110   <reflexive>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+111     <fileset dir="../intermediate/${websiteName}/shared/incs/">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+112       <include name="**/domain.conf.php*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+113     </fileset>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+114 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+115     <filterchain>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+116       <replaceregexp>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+117         <regexp pattern="develop
+\backslash
+/${websiteName}"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+118                 replace="intermediate/${websiteName}" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+119         <regexp pattern="DEVELOPMENT" replace="INTERMEDIATE" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+120       </replaceregexp>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+121     </filterchain>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+122 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+123 </reflexive>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+124
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+125 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+126
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+127 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+128 <!-- initialise live directory
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+129      with domain.conf.php files -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+130 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+131 <!-- copy '${websiteName}/shared/incs/domain.conf.php
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+132      files to live/${websiteName}/shared/incs/
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+133      directory -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+134
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+135 <target name="t7" depends="t6">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+136   <echo msg="Copying domain.conf.php files to new
+\newline
+137 'live/${websiteName}/shar
+ed/incs/' directory..." />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+138 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+139   <copy todir="../live/${websiteName}/shared/incs/">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+140     <!-- Fileset for all files to be copied -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+141     <fileset dir="./${websiteName}/shared/incs/">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+142       <include name="**/domain.conf.php*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+143       <!-- exclude name="**/about.*" /-->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+144     </fileset>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+145   </copy>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+146 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+147
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+148
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+149 <!-- change text strings in domain.conf.php files
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+150      in newly created ${websiteName} directory,
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+151      to work with this new website -->
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+152 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+153 <target name="t8" depends="t7">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+154   <echo msg="replacing 'develop' text with 'live'" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+155   <echo msg="replacing 'DEVELOPMENT' text with 'LIVE'" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+156
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+157   <reflexive>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+158     <fileset dir="../live/${websiteName}/shared/incs/">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+159       <include name="**/domain.conf.php*" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+160     </fileset>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+161 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+162     <filterchain>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+163       <replaceregexp>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+164         <regexp pattern="develop
+\backslash
+/${websiteName}"
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+165                 replace="live/${websiteName}" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+166         <regexp pattern="DEVELOPMENT" replace="LIVE" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+167       </replaceregexp>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+168     </filterchain>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+169
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+170   </reflexive>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+171
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+172 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+173
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+174
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+175 <target name="finished" depends="t8">
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+176   <echo msg="New kazaam website '${websiteName}' created OK!" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+177 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+178   <echo msg="intermediate directory for new kazaam website
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+179 '${websiteName}' created OK!" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+180 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+181   <echo msg="live directory for new kazaam website
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+182 '${websiteName}' created OK!" />
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+183 </target>
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+184 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+185 </project>
+\end_layout
+
+\end_body
+\end_document

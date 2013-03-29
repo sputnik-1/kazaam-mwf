@@ -1,0 +1,337 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+%This preamble is designed to ensure that the document prints
+% out as advertised. If you mess with this preamble,
+% parts of the document may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+\usepackage{ifpdf} % part of the hyperref bundle
+\ifpdf % if pdflatex is used
+
+ % set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+
+ % link all cross references and URLs in pdf output
+ \usepackage[colorlinks=true, bookmarks, bookmarksnumbered,
+  bookmarksopen, bookmarksopenlevel=2,
+  linkcolor=blue, citecolor=black, urlcolor=blue, filecolor=blue,
+  pdfpagelayout=OneColumn, pdfnewwindow=true,
+  pdfstartview=XYZ, plainpages=false, pdfpagelabels,
+  pdfauthor={LyX Team}, pdftex,
+  pdftitle={Introduction to LyX},pdfsubject={LyX-documentation Intro},
+  pdfkeywords={LyX, documentation}]{hyperref}
+ 
+\else % if dvi or ps is produced
+
+ % link all cross references and URLs in dvi output
+ \usepackage[ps2pdf]{hyperref}
+
+\fi % end if pdflatex is used
+
+ % the pages of the TOC are numbered roman
+ % and a pdf-bookmark for the TOC is added
+ \pagenumbering{roman}
+ \let\myTOC\tableofcontents
+ \renewcommand\tableofcontents{%
+   \pdfbookmark[1]{Contents}{}
+   \myTOC
+   \cleardoublepage
+   \pagenumbering{arabic} }
+
+% redefine the \LyX macro for PDF bookmarks
+\def\LyX{\texorpdfstring{%
+  L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX }}
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize 12
+\spacing single
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout LyX-Code
+
+\series bold
+site-config.php
+\newline
+
+\series default
+
+\newline
+01 <?php
+\end_layout
+
+\begin_layout LyX-Code
+02
+\end_layout
+
+\begin_layout LyX-Code
+03 // kazaam-sitetpl global website configuration.
+\end_layout
+
+\begin_layout LyX-Code
+04 // file-id: /kazaam-sitetpl/shared/incs/site-config.php
+\end_layout
+
+\begin_layout LyX-Code
+05
+\end_layout
+
+\begin_layout LyX-Code
+06 // include this file at the top of each page.
+\end_layout
+
+\begin_layout LyX-Code
+07 // this config file will be encoded by ioncube encoder
+\end_layout
+
+\begin_layout LyX-Code
+08 // hiding the path layouts
+\end_layout
+
+\begin_layout LyX-Code
+09
+\end_layout
+
+\begin_layout LyX-Code
+10 /* ------------------------------------------- */
+\end_layout
+
+\begin_layout LyX-Code
+11 // module-specific shared files
+\end_layout
+
+\begin_layout LyX-Code
+12
+\end_layout
+
+\begin_layout LyX-Code
+13 // path to module specific config files
+\end_layout
+
+\begin_layout LyX-Code
+14 $MODULE_CONFIG = "../local/incs";
+\end_layout
+
+\begin_layout LyX-Code
+15
+\end_layout
+
+\begin_layout LyX-Code
+16 // path to this module's local file content
+\end_layout
+
+\begin_layout LyX-Code
+17 $MODULE_PATH = "../local/incs/mod";
+\end_layout
+
+\begin_layout LyX-Code
+18
+\end_layout
+
+\begin_layout LyX-Code
+19 // path to this module's local images
+\end_layout
+
+\begin_layout LyX-Code
+20 $LOCAL_IMAGES = "../local/images";
+\end_layout
+
+\begin_layout LyX-Code
+21
+\end_layout
+
+\begin_layout LyX-Code
+22 // path to this module's local include files
+\end_layout
+
+\begin_layout LyX-Code
+23 $LOCAL_INCS = "../local/incs";
+\end_layout
+
+\begin_layout LyX-Code
+24
+\end_layout
+
+\begin_layout LyX-Code
+25 // path to this module's local class files
+\end_layout
+
+\begin_layout LyX-Code
+26 $LOCAL_CLASSES = "../local/classes";
+\end_layout
+
+\begin_layout LyX-Code
+27
+\end_layout
+
+\begin_layout LyX-Code
+28 /* ------------------------------------------- */
+\end_layout
+
+\begin_layout LyX-Code
+29 // site-wide shared file paths
+\end_layout
+
+\begin_layout LyX-Code
+30
+\end_layout
+
+\begin_layout LyX-Code
+31 // path to site-wide shared include files
+\end_layout
+
+\begin_layout LyX-Code
+32 // and other site-wide includes
+\end_layout
+
+\begin_layout LyX-Code
+33 $CONFIG_PATH = "../../shared/incs";
+\end_layout
+
+\begin_layout LyX-Code
+34
+\end_layout
+
+\begin_layout LyX-Code
+35 // path to site-wide shared include files
+\end_layout
+
+\begin_layout LyX-Code
+36 // and other site-wide includes
+\end_layout
+
+\begin_layout LyX-Code
+37 $SHARED_INCS = "../../shared/incs";
+\end_layout
+
+\begin_layout LyX-Code
+38
+\end_layout
+
+\begin_layout LyX-Code
+39 // path to site-wide shared php classes
+\end_layout
+
+\begin_layout LyX-Code
+40 $SHARED_CLASSES = "../../shared/classes";
+\end_layout
+
+\begin_layout LyX-Code
+41
+\end_layout
+
+\begin_layout LyX-Code
+42 // path to site-wide shared meta-menus
+\end_layout
+
+\begin_layout LyX-Code
+43 $SHARED_META_MENUS = "../../shared/meta-menus";
+\end_layout
+
+\begin_layout LyX-Code
+44
+\end_layout
+
+\begin_layout LyX-Code
+45 // path to site-wide shared images
+\end_layout
+
+\begin_layout LyX-Code
+46 $SHARED_IMAGES = "../../shared/images";
+\end_layout
+
+\begin_layout LyX-Code
+47
+\end_layout
+
+\begin_layout LyX-Code
+48 // path to site-wide style themes
+\end_layout
+
+\begin_layout LyX-Code
+49 $SITE_THEMES = "../../shared/themes/default";
+\end_layout
+
+\begin_layout LyX-Code
+50
+\end_layout
+
+\begin_layout LyX-Code
+51 /* ------------------------------------------- */
+\end_layout
+
+\begin_layout LyX-Code
+52
+\end_layout
+
+\begin_layout LyX-Code
+53 // allow site admin to alter the website configuration globally
+\end_layout
+
+\begin_layout LyX-Code
+54 // this config file will not be encoded
+\end_layout
+
+\begin_layout LyX-Code
+55 // all files ending with .conf.php are not meant
+\newline
+56 // to be encoded
+\end_layout
+
+\begin_layout LyX-Code
+57 require "$SHARED_INCS/user-config.conf.php";
+\end_layout
+
+\begin_layout LyX-Code
+58
+\end_layout
+
+\begin_layout LyX-Code
+59 ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_body
+\end_document

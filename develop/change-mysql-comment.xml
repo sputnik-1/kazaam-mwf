@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<project name="changing mysql comment" default="main" basedir=".">
+
+  <target name="main">
+
+    <echo msg="changing mysql comment" />
+
+    <reflexive>
+      <fileset dir=".">
+        <include name="**/*" />
+
+        <exclude name="tmp-backups/**" />
+        <exclude name="*.xml" />
+        <exclude name="*.xml.bak" />
+        <exclude name="**/*.xml" />
+        <exclude name="**/*.xml.bak" />
+      </fileset>
+
+      <filterchain>
+        <replaceregexp>
+
+          <regexp pattern=" \/\/ password for this module" replace="// password for this module" />
+
+        </replaceregexp>
+      </filterchain>
+
+    </reflexive>
+
+  </target>
+
+</project>

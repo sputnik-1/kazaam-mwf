@@ -1,0 +1,124 @@
+Changing the content of files:
+
+Use Phing script and ReflexiveTask. This works over directory trees
+and their associated files.
+
+Do a test run of the script under /test/PHING/what-to-test
+
+When the script works OK under the PHING test directory, copy the
+script to the real directory to be processed.
+
+To change the contents of files that refer to an include file that has
+been renamed:
+
+Step 1)  First get a count of all references to the original filename:
+
+[root kazaam-sitetpl]# grep -r 'SHARED_INCS/feeds-links-menu.php' * | wc -l
+24
+
+
+Step 2)  Then see if there are any references to the proposed new filename:
+         This should be zero.
+
+[root kazaam-sitetpl]# grep -r 'SHARED_INCS/right-menu.php' * | wc -l
+0
+
+
+Step 3)  Run the PHING script to change all references in files to point
+         to the new filename: 
+
+[root kazaam-sitetpl]# phing -f change-feed-links-menu.xml
+Buildfile: /test/PHING/kazaam-sitetpl/change-feed-links-menu.xml
+
+changing feeds-links-menu.php > main:
+     [echo] changing feeds-links-menu.php to right-menu.php
+[reflexive] Applying reflexive processing to 811 files.
+
+BUILD FINISHED
+
+Total time: 13.2422 seconds
+
+
+Step 4)  Get another count of all references to the original filename.
+         This should now be zero.
+
+[root kazaam-sitetpl]# grep -r 'SHARED_INCS/feeds-links-menu.php' * | wc -l
+0
+
+Step 5)  Get a count of all references to the new filename:
+         This should now be the same as the count for the original filename.
+
+[root kazaam-sitetpl]# grep -r 'SHARED_INCS/right-menu.php' * | wc -l
+24
+
+This should indicate that all references to the original filename
+have now been updated to refer to the new filename.
+
+For example:
+
+[root@karsites kaz-tester]# ls
+change-feed-links-menu.xml      int-delete.xml       remove-AA-NOTES.bsh
+change-feed-links-menu.xml.bak  int-delete.xml.bak   remove-AA-NOTES.bsh.bak
+change-user-config-conf.xml     live-build.xml       rename-AA-NOTES.bsh
+create-new-ext-module.xml       live-build.xml.bak   rename-AA-NOTES.bsh.bak
+create-new-ext-module.xml.bak   live-delete.xml      robots.txt
+create-new-module.xml           live-delete.xml.bak  robots.txt.bak
+create-new-module.xml.bak       module-example1      shared
+fedora-services                 module-example2      shared-host
+home                            module-example3      tmp-backups
+int-build.xml                   new-ext-module       website-docs
+int-build.xml.bak               new-module
+
+[root@karsites kaz-tester]# grep -r 'SHARED_INCS/feeds-links-menu.php' * | wc -l
+24
+[root@karsites kaz-tester]# grep -r 'SHARED_INCS/right-menu.php' * | wc -l
+0
+[root@karsites kaz-tester]# phing -f change-feed-links-menu.xml
+Buildfile: /test/PHING/kaz-tester/change-feed-links-menu.xml
+
+changing feeds-links-menu.php > main:
+     [echo] changing feeds-links-menu.php to right-menu.php
+[reflexive] Applying reflexive processing to 811 files.
+
+BUILD FINISHED
+
+Total time: 13.3260 seconds
+[root@karsites kaz-tester]# grep -r 'SHARED_INCS/feeds-links-menu.php' * | wc -l
+0
+[root@karsites kaz-tester]# grep -r 'SHARED_INCS/right-menu.php' * | wc -l
+24
+[root@karsites kaz-tester]#
+
+------------------------------------------------------------
+
+Changing file names (possible directory names as well):
+
+Use find as in:
+
+#!/bin/bash
+
+# Bash script to rename a given file
+# that lives in a tree of sub-directories.
+# -okdir will prompt before renaming the file.
+
+#------------------------------------------------------#
+
+echo
+echo "running find . -name 'AA-NOTE' -okdir mv '{}' 00-NOTE \;"
+find . -name 'AA-NOTE' -okdir mv '{}' 00-NOTE \;
+
+#------------------------------------------------------#
+
+exit 0
+
+[root]# find . -name 'AA-NOTE' -okdir mv '{}' 00-NOTE \;
+
+------------------------------------------------------------
+
+Changing directory and file permissions:
+
+findutils:
+
+find and xargs.
+
+------------------------------------------------------------

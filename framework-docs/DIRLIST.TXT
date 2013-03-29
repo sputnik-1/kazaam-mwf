@@ -1,0 +1,971 @@
+Note: to save this use the 'Edit>Save history as' button from konsole.
+
+[root@karsites develop]# tree --dirsfirst -ACF -L 5 kazaam-sitetpl
+kazaam-sitetpl
+├── fedora-services/
+│   ├── admin/
+│   │   └── tmp-backups/
+│   ├── anyuser/
+│   │   ├── tmp-backups/
+│   │   │   ├── anacron.php*
+│   │   │   ├── anacron.php.bak*
+│   │   │   ├── atd.php*
+│   │   │   ├── atd.php.bak*
+│   │   │   ├── auditd.php*
+│   │   │   ├── auditd.php.bak*
+│   │   │   ├── fedora-services.php*
+│   │   │   └── fedora-services.php.bak*
+│   │   ├── anacron.php*
+│   │   ├── anacron.php.bak*
+│   │   ├── atd.php*
+│   │   ├── atd.php.bak*
+│   │   ├── auditd.php*
+│   │   ├── auditd.php.bak*
+│   │   ├── fedora-services.php*
+│   │   └── fedora-services.php.bak*
+│   ├── local/
+│   │   ├── classes/
+│   │   │   └── tmp-backups/
+│   │   ├── images/
+│   │   │   ├── tmp-backups/
+│   │   │   │   └── 00-NOTE*
+│   │   │   └── 00-NOTE*
+│   │   └── incs/
+│   │       ├── mod/
+│   │       │   ├── tmp-backups/
+│   │       │   ├── fedora-services-menu.php*
+│   │       │   └── fedora-services-menu.php.bak*
+│   │       ├── tmp-backups/
+│   │       │   ├── fedora-services.conf.php*
+│   │       │   └── fedora-services.conf.php.bak*
+│   │       ├── fedora-services.conf.php*
+│   │       └── fedora-services.conf.php.bak*
+│   ├── module-docs/
+│   │   ├── tmp-backups/
+│   │   │   ├── 00-NOTE*
+│   │   │   ├── DEV-NOTES*
+│   │   │   └── MODULE-TYPE*
+│   │   ├── 00-NOTE*
+│   │   ├── DEV-NOTES*
+│   │   └── MODULE-TYPE*
+│   └── page-templates/
+│       ├── tmp-backups/
+│       │   ├── 00-NOTE*
+│       │   ├── 1-column-ext-page.php*
+│       │   ├── 1-column-ext-page.php.bak*
+│       │   ├── 1-column-page.cont.php*
+│       │   ├── 1-column-page.cont.php.bak*
+│       │   ├── 1-column-page.php*
+│       │   ├── 1-column-page.php.bak*
+│       │   ├── 2-column-ext-page.php*
+│       │   ├── 2-column-ext-page.php.bak*
+│       │   ├── 2-column-page.cont.php*
+│       │   ├── 2-column-page.cont.php.bak*
+│       │   ├── 2-column-page.php*
+│       │   ├── 2-column-page.php.bak*
+│       │   ├── 3-column-ext-page.php*
+│       │   ├── 3-column-ext-page.php.bak*
+│       │   ├── 3-column-page.cont.php*
+│       │   ├── 3-column-page.cont.php.bak*
+│       │   ├── 3-column-page.php*
+│       │   └── 3-column-page.php.bak*
+│       ├── 00-NOTE*
+│       ├── 1-column-ext-page.php*
+│       ├── 1-column-ext-page.php.bak*
+│       ├── 1-column-page.cont.php*
+│       ├── 1-column-page.cont.php.bak*
+│       ├── 1-column-page.php*
+│       ├── 1-column-page.php.bak*
+│       ├── 2-column-ext-page.php*
+│       ├── 2-column-ext-page.php.bak*
+│       ├── 2-column-page.cont.php*
+│       ├── 2-column-page.cont.php.bak*
+│       ├── 2-column-page.php*
+│       ├── 2-column-page.php.bak*
+│       ├── 3-column-ext-page.php*
+│       ├── 3-column-ext-page.php.bak*
+│       ├── 3-column-page.cont.php*
+│       ├── 3-column-page.cont.php.bak*
+│       ├── 3-column-page.php*
+│       └── 3-column-page.php.bak*
+├── home/
+│   ├── admin/
+│   │   └── tmp-backups/
+│   ├── anyuser/
+│   │   ├── tmp-backups/
+│   │   │   ├── about.php*
+│   │   │   ├── about.php.bak*
+│   │   │   ├── browsers.php*
+│   │   │   ├── browsers.php.bak*
+│   │   │   ├── contact.php*
+│   │   │   ├── contact.php.bak*
+│   │   │   ├── copyright.php*
+│   │   │   ├── copyright.php.bak*
+│   │   │   ├── credits.php*
+│   │   │   ├── credits.php.bak*
+│   │   │   ├── disclaimer.php*
+│   │   │   ├── disclaimer.php.bak*
+│   │   │   ├── error-test-page.php*
+│   │   │   ├── error-test-page.php.bak*
+│   │   │   ├── home.php*
+│   │   │   ├── home.php.bak*
+│   │   │   ├── interests.php*
+│   │   │   ├── interests.php.bak*
+│   │   │   ├── skillset-SAVE*
+│   │   │   ├── skillset-SAVE.bak*
+│   │   │   ├── skillset.php*
+│   │   │   ├── skillset.php.bak*
+│   │   │   ├── todo.php*
+│   │   │   └── todo.php.bak*
+│   │   ├── about.php*
+│   │   ├── about.php.bak*
+│   │   ├── browsers.php*
+│   │   ├── browsers.php.bak*
+│   │   ├── contact.php*
+│   │   ├── contact.php.bak*
+│   │   ├── copyright.php*
+│   │   ├── copyright.php.bak*
+│   │   ├── credits.php*
+│   │   ├── credits.php.bak*
+│   │   ├── disclaimer.php*
+│   │   ├── disclaimer.php.bak*
+│   │   ├── error-test-page.php*
+│   │   ├── error-test-page.php.bak*
+│   │   ├── home.php*
+│   │   ├── home.php.bak*
+│   │   ├── interests.php*
+│   │   ├── interests.php.bak*
+│   │   ├── skillset-SAVE*
+│   │   ├── skillset-SAVE.bak*
+│   │   ├── skillset.php*
+│   │   ├── skillset.php.bak*
+│   │   ├── todo.php*
+│   │   └── todo.php.bak*
+│   ├── local/
+│   │   ├── classes/
+│   │   │   └── tmp-backups/
+│   │   ├── images/
+│   │   │   ├── tmp-backups/
+│   │   │   │   └── 00-NOTE*
+│   │   │   └── 00-NOTE*
+│   │   └── incs/
+│   │       ├── mod/
+│   │       │   ├── tmp-backups/
+│   │       │   ├── home-main.php*
+│   │       │   ├── home-main.php.bak*
+│   │       │   ├── home-menu.php*
+│   │       │   ├── home-menu.php.bak*
+│   │       │   ├── home-right-menu.php*
+│   │       │   ├── home-right-menu.php.bak*
+│   │       │   ├── homepage-1.php*
+│   │       │   └── homepage-1.php.bak*
+│   │       ├── tmp-backups/
+│   │       │   ├── home.conf.php*
+│   │       │   └── home.conf.php.bak*
+│   │       ├── home.conf.php*
+│   │       └── home.conf.php.bak*
+│   ├── module-docs/
+│   │   ├── tmp-backups/
+│   │   │   ├── 00-NOTE*
+│   │   │   ├── DEV-NOTES*
+│   │   │   └── MODULE-TYPE*
+│   │   ├── 00-NOTE*
+│   │   ├── DEV-NOTES*
+│   │   └── MODULE-TYPE*
+│   └── page-templates/
+│       ├── tmp-backups/
+│       │   ├── 00-NOTE*
+│       │   ├── 1-column-ext-page.php*
+│       │   ├── 1-column-ext-page.php.bak*
+│       │   ├── 1-column-page.cont.php*
+│       │   ├── 1-column-page.cont.php.bak*
+│       │   ├── 1-column-page.php*
+│       │   ├── 1-column-page.php.bak*
+│       │   ├── 2-column-ext-page.php*
+│       │   ├── 2-column-ext-page.php.bak*
+│       │   ├── 2-column-page.cont.php*
+│       │   ├── 2-column-page.cont.php.bak*
+│       │   ├── 2-column-page.php*
+│       │   ├── 2-column-page.php.bak*
+│       │   ├── 3-column-ext-page.php*
+│       │   ├── 3-column-ext-page.php.bak*
+│       │   ├── 3-column-page.cont.php*
+│       │   ├── 3-column-page.cont.php.bak*
+│       │   ├── 3-column-page.php*
+│       │   └── 3-column-page.php.bak*
+│       ├── 00-NOTE*
+│       ├── 1-column-ext-page.php*
+│       ├── 1-column-ext-page.php.bak*
+│       ├── 1-column-page.cont.php*
+│       ├── 1-column-page.cont.php.bak*
+│       ├── 1-column-page.php*
+│       ├── 1-column-page.php.bak*
+│       ├── 2-column-ext-page.php*
+│       ├── 2-column-ext-page.php.bak*
+│       ├── 2-column-page.cont.php*
+│       ├── 2-column-page.cont.php.bak*
+│       ├── 2-column-page.php*
+│       ├── 2-column-page.php.bak*
+│       ├── 3-column-ext-page.php*
+│       ├── 3-column-ext-page.php.bak*
+│       ├── 3-column-page.cont.php*
+│       ├── 3-column-page.cont.php.bak*
+│       ├── 3-column-page.php*
+│       └── 3-column-page.php.bak*
+├── module-example1/
+│   ├── admin/
+│   │   └── tmp-backups/
+│   ├── anyuser/
+│   │   ├── tmp-backups/
+│   │   │   ├── 1-column-page.php*
+│   │   │   ├── 1-column-page.php.bak*
+│   │   │   ├── 2-column-page.php*
+│   │   │   ├── 2-column-page.php.bak*
+│   │   │   ├── 3-column-page.php*
+│   │   │   ├── 3-column-page.php.bak*
+│   │   │   ├── module-example1.php*
+│   │   │   └── module-example1.php.bak*
+│   │   ├── 1-column-page.php*
+│   │   ├── 1-column-page.php.bak*
+│   │   ├── 2-column-page.php*
+│   │   ├── 2-column-page.php.bak*
+│   │   ├── 3-column-page.php*
+│   │   ├── 3-column-page.php.bak*
+│   │   ├── module-example1.php*
+│   │   └── module-example1.php.bak*
+│   ├── local/
+│   │   ├── classes/
+│   │   │   └── tmp-backups/
+│   │   ├── images/
+│   │   │   ├── tmp-backups/
+│   │   │   │   └── 00-NOTE*
+│   │   │   └── 00-NOTE*
+│   │   └── incs/
+│   │       ├── mod/
+│   │       │   ├── tmp-backups/
+│   │       │   ├── module-example1-menu.php*
+│   │       │   ├── module-example1-menu.php.bak*
+│   │       │   ├── module-example1-right-menu.php*
+│   │       │   └── module-example1-right-menu.php.bak*
+│   │       ├── tmp-backups/
+│   │       │   ├── module-example1.conf.php*
+│   │       │   └── module-example1.conf.php.bak*
+│   │       ├── module-example1.conf.php*
+│   │       └── module-example1.conf.php.bak*
+│   ├── module-docs/
+│   │   ├── tmp-backups/
+│   │   │   ├── 00-NOTE*
+│   │   │   ├── DEV-NOTES*
+│   │   │   └── MODULE-TYPE*
+│   │   ├── 00-NOTE*
+│   │   ├── DEV-NOTES*
+│   │   └── MODULE-TYPE*
+│   └── page-templates/
+│       ├── tmp-backups/
+│       │   ├── 00-NOTE*
+│       │   ├── 1-column-ext-page.php*
+│       │   ├── 1-column-ext-page.php.bak*
+│       │   ├── 1-column-page.cont.php*
+│       │   ├── 1-column-page.cont.php.bak*
+│       │   ├── 1-column-page.php*
+│       │   ├── 1-column-page.php.bak*
+│       │   ├── 2-column-ext-page.php*
+│       │   ├── 2-column-ext-page.php.bak*
+│       │   ├── 2-column-page.cont.php*
+│       │   ├── 2-column-page.cont.php.bak*
+│       │   ├── 2-column-page.php*
+│       │   ├── 2-column-page.php.bak*
+│       │   ├── 3-column-ext-page.php*
+│       │   ├── 3-column-ext-page.php.bak*
+│       │   ├── 3-column-page.cont.php*
+│       │   ├── 3-column-page.cont.php.bak*
+│       │   ├── 3-column-page.php*
+│       │   └── 3-column-page.php.bak*
+│       ├── 00-NOTE*
+│       ├── 1-column-ext-page.php*
+│       ├── 1-column-ext-page.php.bak*
+│       ├── 1-column-page.cont.php*
+│       ├── 1-column-page.cont.php.bak*
+│       ├── 1-column-page.php*
+│       ├── 1-column-page.php.bak*
+│       ├── 2-column-ext-page.php*
+│       ├── 2-column-ext-page.php.bak*
+│       ├── 2-column-page.cont.php*
+│       ├── 2-column-page.cont.php.bak*
+│       ├── 2-column-page.php*
+│       ├── 2-column-page.php.bak*
+│       ├── 3-column-ext-page.php*
+│       ├── 3-column-ext-page.php.bak*
+│       ├── 3-column-page.cont.php*
+│       ├── 3-column-page.cont.php.bak*
+│       ├── 3-column-page.php*
+│       └── 3-column-page.php.bak*
+├── module-example2/
+│   ├── admin/
+│   │   └── tmp-backups/
+│   ├── anyuser/
+│   │   ├── tmp-backups/
+│   │   │   ├── 1-column-page.php*
+│   │   │   ├── 1-column-page.php.bak*
+│   │   │   ├── 2-column-page.php*
+│   │   │   ├── 2-column-page.php.bak*
+│   │   │   ├── 3-column-page.php*
+│   │   │   ├── 3-column-page.php.bak*
+│   │   │   ├── module-example2.php*
+│   │   │   └── module-example2.php.bak*
+│   │   ├── 1-column-page.php*
+│   │   ├── 1-column-page.php.bak*
+│   │   ├── 2-column-page.php*
+│   │   ├── 2-column-page.php.bak*
+│   │   ├── 3-column-page.php*
+│   │   ├── 3-column-page.php.bak*
+│   │   ├── module-example2.php*
+│   │   └── module-example2.php.bak*
+│   ├── local/
+│   │   ├── classes/
+│   │   │   └── tmp-backups/
+│   │   ├── images/
+│   │   │   ├── tmp-backups/
+│   │   │   │   └── 00-NOTE*
+│   │   │   └── 00-NOTE*
+│   │   └── incs/
+│   │       ├── mod/
+│   │       │   ├── tmp-backups/
+│   │       │   ├── module-example2-menu.php*
+│   │       │   ├── module-example2-menu.php.bak*
+│   │       │   ├── module-example2-right-menu.php*
+│   │       │   └── module-example2-right-menu.php.bak*
+│   │       ├── tmp-backups/
+│   │       │   ├── module-example2.conf.php*
+│   │       │   └── module-example2.conf.php.bak*
+│   │       ├── module-example2.conf.php*
+│   │       └── module-example2.conf.php.bak*
+│   ├── module-docs/
+│   │   ├── tmp-backups/
+│   │   │   ├── 00-NOTE*
+│   │   │   ├── DEV-NOTES*
+│   │   │   └── MODULE-TYPE*
+│   │   ├── 00-NOTE*
+│   │   ├── DEV-NOTES*
+│   │   └── MODULE-TYPE*
+│   └── page-templates/
+│       ├── tmp-backups/
+│       │   ├── 00-NOTE*
+│       │   ├── 1-column-ext-page.php*
+│       │   ├── 1-column-ext-page.php.bak*
+│       │   ├── 1-column-page.cont.php*
+│       │   ├── 1-column-page.cont.php.bak*
+│       │   ├── 1-column-page.php*
+│       │   ├── 1-column-page.php.bak*
+│       │   ├── 2-column-ext-page.php*
+│       │   ├── 2-column-ext-page.php.bak*
+│       │   ├── 2-column-page.cont.php*
+│       │   ├── 2-column-page.cont.php.bak*
+│       │   ├── 2-column-page.php*
+│       │   ├── 2-column-page.php.bak*
+│       │   ├── 3-column-ext-page.php*
+│       │   ├── 3-column-ext-page.php.bak*
+│       │   ├── 3-column-page.cont.php*
+│       │   ├── 3-column-page.cont.php.bak*
+│       │   ├── 3-column-page.php*
+│       │   └── 3-column-page.php.bak*
+│       ├── 00-NOTE*
+│       ├── 1-column-ext-page.php*
+│       ├── 1-column-ext-page.php.bak*
+│       ├── 1-column-page.cont.php*
+│       ├── 1-column-page.cont.php.bak*
+│       ├── 1-column-page.php*
+│       ├── 1-column-page.php.bak*
+│       ├── 2-column-ext-page.php*
+│       ├── 2-column-ext-page.php.bak*
+│       ├── 2-column-page.cont.php*
+│       ├── 2-column-page.cont.php.bak*
+│       ├── 2-column-page.php*
+│       ├── 2-column-page.php.bak*
+│       ├── 3-column-ext-page.php*
+│       ├── 3-column-ext-page.php.bak*
+│       ├── 3-column-page.cont.php*
+│       ├── 3-column-page.cont.php.bak*
+│       ├── 3-column-page.php*
+│       └── 3-column-page.php.bak*
+├── module-example3/
+│   ├── admin/
+│   │   └── tmp-backups/
+│   ├── anyuser/
+│   │   ├── tmp-backups/
+│   │   │   ├── 1-column-page.php*
+│   │   │   ├── 1-column-page.php.bak*
+│   │   │   ├── 2-column-page.php*
+│   │   │   ├── 2-column-page.php.bak*
+│   │   │   ├── 3-column-page.php*
+│   │   │   ├── 3-column-page.php.bak*
+│   │   │   ├── module-example3.php*
+│   │   │   └── module-example3.php.bak*
+│   │   ├── 1-column-page.php*
+│   │   ├── 1-column-page.php.bak*
+│   │   ├── 2-column-page.php*
+│   │   ├── 2-column-page.php.bak*
+│   │   ├── 3-column-page.php*
+│   │   ├── 3-column-page.php.bak*
+│   │   ├── module-example3.php*
+│   │   └── module-example3.php.bak*
+│   ├── local/
+│   │   ├── classes/
+│   │   │   └── tmp-backups/
+│   │   ├── images/
+│   │   │   ├── tmp-backups/
+│   │   │   │   └── 00-NOTE*
+│   │   │   └── 00-NOTE*
+│   │   └── incs/
+│   │       ├── mod/
+│   │       │   ├── tmp-backups/
+│   │       │   ├── module-example3-menu.php*
+│   │       │   ├── module-example3-menu.php.bak*
+│   │       │   ├── module-example3-right-menu.php*
+│   │       │   └── module-example3-right-menu.php.bak*
+│   │       ├── tmp-backups/
+│   │       │   ├── module-example3.conf.php*
+│   │       │   └── module-example3.conf.php.bak*
+│   │       ├── module-example3.conf.php*
+│   │       └── module-example3.conf.php.bak*
+│   ├── module-docs/
+│   │   ├── tmp-backups/
+│   │   │   ├── 00-NOTE*
+│   │   │   ├── DEV-NOTES*
+│   │   │   └── MODULE-TYPE*
+│   │   ├── 00-NOTE*
+│   │   ├── DEV-NOTES*
+│   │   └── MODULE-TYPE*
+│   └── page-templates/
+│       ├── tmp-backups/
+│       │   ├── 00-NOTE*
+│       │   ├── 1-column-ext-page.php*
+│       │   ├── 1-column-ext-page.php.bak*
+│       │   ├── 1-column-page.cont.php*
+│       │   ├── 1-column-page.cont.php.bak*
+│       │   ├── 1-column-page.php*
+│       │   ├── 1-column-page.php.bak*
+│       │   ├── 2-column-ext-page.php*
+│       │   ├── 2-column-ext-page.php.bak*
+│       │   ├── 2-column-page.cont.php*
+│       │   ├── 2-column-page.cont.php.bak*
+│       │   ├── 2-column-page.php*
+│       │   ├── 2-column-page.php.bak*
+│       │   ├── 3-column-ext-page.php*
+│       │   ├── 3-column-ext-page.php.bak*
+│       │   ├── 3-column-page.cont.php*
+│       │   ├── 3-column-page.cont.php.bak*
+│       │   ├── 3-column-page.php*
+│       │   └── 3-column-page.php.bak*
+│       ├── 00-NOTE*
+│       ├── 1-column-ext-page.php*
+│       ├── 1-column-ext-page.php.bak*
+│       ├── 1-column-page.cont.php*
+│       ├── 1-column-page.cont.php.bak*
+│       ├── 1-column-page.php*
+│       ├── 1-column-page.php.bak*
+│       ├── 2-column-ext-page.php*
+│       ├── 2-column-ext-page.php.bak*
+│       ├── 2-column-page.cont.php*
+│       ├── 2-column-page.cont.php.bak*
+│       ├── 2-column-page.php*
+│       ├── 2-column-page.php.bak*
+│       ├── 3-column-ext-page.php*
+│       ├── 3-column-ext-page.php.bak*
+│       ├── 3-column-page.cont.php*
+│       ├── 3-column-page.cont.php.bak*
+│       ├── 3-column-page.php*
+│       └── 3-column-page.php.bak*
+├── new-ext-module/
+│   ├── admin/
+│   │   └── tmp-backups/
+│   ├── anyuser/
+│   │   ├── tmp-backups/
+│   │   │   ├── 1-column-ext-page.php*
+│   │   │   ├── 1-column-ext-page.php.bak*
+│   │   │   ├── 1-column-page.cont.php*
+│   │   │   ├── 1-column-page.cont.php.bak*
+│   │   │   ├── 2-column-ext-page.php*
+│   │   │   ├── 2-column-ext-page.php.bak*
+│   │   │   ├── 2-column-page.cont.php*
+│   │   │   ├── 2-column-page.cont.php.bak*
+│   │   │   ├── 3-column-ext-page.php*
+│   │   │   ├── 3-column-ext-page.php.bak*
+│   │   │   ├── 3-column-page.cont.php*
+│   │   │   ├── 3-column-page.cont.php.bak*
+│   │   │   ├── new-ext-module.cont.php*
+│   │   │   ├── new-ext-module.cont.php.bak*
+│   │   │   ├── new-ext-module.php*
+│   │   │   └── new-ext-module.php.bak*
+│   │   ├── 1-column-ext-page.php*
+│   │   ├── 1-column-ext-page.php.bak*
+│   │   ├── 1-column-page.cont.php*
+│   │   ├── 1-column-page.cont.php.bak*
+│   │   ├── 2-column-ext-page.php*
+│   │   ├── 2-column-ext-page.php.bak*
+│   │   ├── 2-column-page.cont.php*
+│   │   ├── 2-column-page.cont.php.bak*
+│   │   ├── 3-column-ext-page.php*
+│   │   ├── 3-column-ext-page.php.bak*
+│   │   ├── 3-column-page.cont.php*
+│   │   ├── 3-column-page.cont.php.bak*
+│   │   ├── new-ext-module.cont.php*
+│   │   ├── new-ext-module.cont.php.bak*
+│   │   ├── new-ext-module.php*
+│   │   └── new-ext-module.php.bak*
+│   ├── local/
+│   │   ├── classes/
+│   │   │   └── tmp-backups/
+│   │   ├── images/
+│   │   │   ├── tmp-backups/
+│   │   │   │   └── 00-NOTE*
+│   │   │   └── 00-NOTE*
+│   │   └── incs/
+│   │       ├── mod/
+│   │       │   ├── tmp-backups/
+│   │       │   ├── new-ext-module-menu.php*
+│   │       │   ├── new-ext-module-menu.php.bak*
+│   │       │   ├── new-ext-module-right-menu.php*
+│   │       │   └── new-ext-module-right-menu.php.bak*
+│   │       ├── tmp-backups/
+│   │       │   ├── new-ext-module.conf.php*
+│   │       │   └── new-ext-module.conf.php.bak*
+│   │       ├── new-ext-module.conf.php*
+│   │       └── new-ext-module.conf.php.bak*
+│   ├── module-docs/
+│   │   ├── tmp-backups/
+│   │   │   ├── 00-NOTE*
+│   │   │   ├── DEV-NOTES*
+│   │   │   └── MODULE-TYPE*
+│   │   ├── 00-NOTE*
+│   │   ├── DEV-NOTES*
+│   │   └── MODULE-TYPE*
+│   └── page-templates/
+│       ├── tmp-backups/
+│       │   ├── 00-NOTE*
+│       │   ├── 1-column-ext-page.php*
+│       │   ├── 1-column-ext-page.php.bak*
+│       │   ├── 1-column-page.cont.php*
+│       │   ├── 1-column-page.cont.php.bak*
+│       │   ├── 1-column-page.php*
+│       │   ├── 1-column-page.php.bak*
+│       │   ├── 2-column-ext-page.php*
+│       │   ├── 2-column-ext-page.php.bak*
+│       │   ├── 2-column-page.cont.php*
+│       │   ├── 2-column-page.cont.php.bak*
+│       │   ├── 2-column-page.php*
+│       │   ├── 2-column-page.php.bak*
+│       │   ├── 3-column-ext-page.php*
+│       │   ├── 3-column-ext-page.php.bak*
+│       │   ├── 3-column-page.cont.php*
+│       │   ├── 3-column-page.cont.php.bak*
+│       │   ├── 3-column-page.php*
+│       │   └── 3-column-page.php.bak*
+│       ├── 00-NOTE*
+│       ├── 1-column-ext-page.php*
+│       ├── 1-column-ext-page.php.bak*
+│       ├── 1-column-page.cont.php*
+│       ├── 1-column-page.cont.php.bak*
+│       ├── 1-column-page.php*
+│       ├── 1-column-page.php.bak*
+│       ├── 2-column-ext-page.php*
+│       ├── 2-column-ext-page.php.bak*
+│       ├── 2-column-page.cont.php*
+│       ├── 2-column-page.cont.php.bak*
+│       ├── 2-column-page.php*
+│       ├── 2-column-page.php.bak*
+│       ├── 3-column-ext-page.php*
+│       ├── 3-column-ext-page.php.bak*
+│       ├── 3-column-page.cont.php*
+│       ├── 3-column-page.cont.php.bak*
+│       ├── 3-column-page.php*
+│       └── 3-column-page.php.bak*
+├── new-module/
+│   ├── admin/
+│   ├── anyuser/
+│   │   ├── tmp-backups/
+│   │   │   ├── 1-column-page.php*
+│   │   │   ├── 1-column-page.php.bak*
+│   │   │   ├── 2-column-page.php*
+│   │   │   ├── 2-column-page.php.bak*
+│   │   │   ├── 3-column-page.php*
+│   │   │   ├── 3-column-page.php.bak*
+│   │   │   ├── new-module.php*
+│   │   │   └── new-module.php.bak*
+│   │   ├── 1-column-page.php*
+│   │   ├── 1-column-page.php.bak*
+│   │   ├── 2-column-page.php*
+│   │   ├── 2-column-page.php.bak*
+│   │   ├── 3-column-page.php*
+│   │   ├── 3-column-page.php.bak*
+│   │   ├── new-module.php*
+│   │   └── new-module.php.bak*
+│   ├── auth-user/
+│   ├── local/
+│   │   ├── classes/
+│   │   │   └── tmp-backups/
+│   │   ├── images/
+│   │   │   ├── tmp-backups/
+│   │   │   │   └── 00-NOTE*
+│   │   │   └── 00-NOTE*
+│   │   └── incs/
+│   │       ├── mod/
+│   │       │   ├── tmp-backups/
+│   │       │   ├── new-module-menu.php*
+│   │       │   ├── new-module-menu.php.bak*
+│   │       │   ├── new-module-right-menu.php*
+│   │       │   └── new-module-right-menu.php.bak*
+│   │       ├── tmp-backups/
+│   │       │   ├── new-module.conf.php*
+│   │       │   └── new-module.conf.php.bak*
+│   │       ├── new-module.conf.php*
+│   │       └── new-module.conf.php.bak*
+│   ├── module-docs/
+│   │   ├── tmp-backups/
+│   │   │   ├── 00-NOTE*
+│   │   │   ├── DEV-NOTES*
+│   │   │   └── MODULE-TYPE*
+│   │   ├── 00-NOTE*
+│   │   ├── DEV-NOTES*
+│   │   └── MODULE-TYPE*
+│   └── page-templates/
+│       ├── tmp-backups/
+│       │   ├── 00-NOTE*
+│       │   ├── 1-column-ext-page.php*
+│       │   ├── 1-column-ext-page.php.bak*
+│       │   ├── 1-column-page.cont.php*
+│       │   ├── 1-column-page.cont.php.bak*
+│       │   ├── 1-column-page.php*
+│       │   ├── 1-column-page.php.bak*
+│       │   ├── 2-column-ext-page.php*
+│       │   ├── 2-column-ext-page.php.bak*
+│       │   ├── 2-column-page.cont.php*
+│       │   ├── 2-column-page.cont.php.bak*
+│       │   ├── 2-column-page.php*
+│       │   ├── 2-column-page.php.bak*
+│       │   ├── 3-column-ext-page.php*
+│       │   ├── 3-column-ext-page.php.bak*
+│       │   ├── 3-column-page.cont.php*
+│       │   ├── 3-column-page.cont.php.bak*
+│       │   ├── 3-column-page.php*
+│       │   └── 3-column-page.php.bak*
+│       ├── 00-NOTE*
+│       ├── 1-column-ext-page.php*
+│       ├── 1-column-ext-page.php.bak*
+│       ├── 1-column-page.cont.php*
+│       ├── 1-column-page.cont.php.bak*
+│       ├── 1-column-page.php*
+│       ├── 1-column-page.php.bak*
+│       ├── 2-column-ext-page.php*
+│       ├── 2-column-ext-page.php.bak*
+│       ├── 2-column-page.cont.php*
+│       ├── 2-column-page.cont.php.bak*
+│       ├── 2-column-page.php*
+│       ├── 2-column-page.php.bak*
+│       ├── 3-column-ext-page.php*
+│       ├── 3-column-ext-page.php.bak*
+│       ├── 3-column-page.cont.php*
+│       ├── 3-column-page.cont.php.bak*
+│       ├── 3-column-page.php*
+│       └── 3-column-page.php.bak*
+├── shared/
+│   ├── classes/
+│   │   ├── tmp-backups/
+│   │   │   ├── class.AjaxDebug.php*
+│   │   │   ├── class.AjaxDebug.php.bak*
+│   │   │   ├── class.AjaxDebug_min.php*
+│   │   │   ├── class.AjaxDebug_min.php.bak*
+│   │   │   ├── class.Mysql.php*
+│   │   │   ├── class.Mysql.php.bak*
+│   │   │   ├── class.PostVarDebug.php*
+│   │   │   ├── class.PostVarDebug.php.bak*
+│   │   │   ├── class.SiteAdmin.php*
+│   │   │   └── class.SiteAdmin.php.bak*
+│   │   ├── class.AjaxDebug.php*
+│   │   ├── class.AjaxDebug.php.bak*
+│   │   ├── class.AjaxDebug_min.php*
+│   │   ├── class.AjaxDebug_min.php.bak*
+│   │   ├── class.Mysql.php*
+│   │   ├── class.Mysql.php.bak*
+│   │   ├── class.PostVarDebug.php*
+│   │   ├── class.PostVarDebug.php.bak*
+│   │   ├── class.SiteAdmin.php*
+│   │   └── class.SiteAdmin.php.bak*
+│   ├── images/
+│   │   ├── tmp-backups/
+│   │   │   ├── apache_pb2.gif*
+│   │   │   ├── bkgnd1.gif*
+│   │   │   ├── bkgnd2.jpg*
+│   │   │   ├── bkgnd3.jpg*
+│   │   │   ├── bkgnd4.jpg*
+│   │   │   ├── bkgnd5.jpg*
+│   │   │   ├── bkgnd6.jpg*
+│   │   │   ├── bkgnd7.jpg*
+│   │   │   ├── bkgnd8.jpg*
+│   │   │   ├── bkgnd9.jpg*
+│   │   │   ├── kazaam-mwf-site-logo*
+│   │   │   ├── kazaam-mwf-site-logo-2.jpg*
+│   │   │   ├── kazaam-mwf-site-logo-3.jpg*
+│   │   │   ├── kazaam-mwf-site-logo-4.jpg*
+│   │   │   ├── php-med-trans.png*
+│   │   │   ├── powered-by-mysql-125x64.png*
+│   │   │   ├── powered_by_fedora.png*
+│   │   │   ├── site-logo*
+│   │   │   ├── valid-robots.png*
+│   │   │   ├── valid-xhtml10*
+│   │   │   ├── vcss*
+│   │   │   └── zend-powered-by.png*
+│   │   ├── apache_pb2.gif*
+│   │   ├── bg_paper_mid.jpg*
+│   │   ├── bkgnd1.gif*
+│   │   ├── bkgnd2.jpg*
+│   │   ├── bkgnd3.jpg*
+│   │   ├── bkgnd4.jpg*
+│   │   ├── bkgnd5.jpg*
+│   │   ├── bkgnd6.jpg*
+│   │   ├── bkgnd7.jpg*
+│   │   ├── bkgnd8.jpg*
+│   │   ├── bkgnd9.jpg*
+│   │   ├── kazaam-mwf-site-logo*
+│   │   ├── kazaam-mwf-site-logo-2.jpg*
+│   │   ├── kazaam-mwf-site-logo-3.jpg*
+│   │   ├── kazaam-mwf-site-logo-4.jpg*
+│   │   ├── php-med-trans.png*
+│   │   ├── powered-by-mysql-125x64.png*
+│   │   ├── powered_by_fedora.png*
+│   │   ├── site-logo*
+│   │   ├── valid-robots.png*
+│   │   ├── valid-xhtml10*
+│   │   ├── vcss*
+│   │   └── zend-powered-by.png*
+│   ├── incs/
+│   │   ├── tmp-backups/
+│   │   │   ├── admin-details.php*
+│   │   │   ├── admin-details.php.bak*
+│   │   │   ├── admin-page-check.php*
+│   │   │   ├── admin-page-check.php.bak*
+│   │   │   ├── admin_link_bar.php*
+│   │   │   ├── admin_link_bar.php.bak*
+│   │   │   ├── copyright.php*
+│   │   │   ├── copyright.php.bak*
+│   │   │   ├── disclaimer-body.php*
+│   │   │   ├── disclaimer-body.php.bak*
+│   │   │   ├── domain.conf.php*
+│   │   │   ├── domain.conf.php.bak*
+│   │   │   ├── homepage-menu.php*
+│   │   │   ├── homepage-menu.php.bak*
+│   │   │   ├── meta-info.php*
+│   │   │   ├── meta-info.php.bak*
+│   │   │   ├── page-head.php*
+│   │   │   ├── page-head.php.bak*
+│   │   │   ├── right-menu.php*
+│   │   │   ├── right-menu.php.bak*
+│   │   │   ├── session.funcs.php*
+│   │   │   ├── session.funcs.php.bak*
+│   │   │   ├── site-config.php*
+│   │   │   ├── site-config.php.bak*
+│   │   │   ├── site-js.js*
+│   │   │   ├── site-js.js.bak*
+│   │   │   ├── site-js.org*
+│   │   │   ├── site-js.org.bak*
+│   │   │   ├── top_link_bar.php*
+│   │   │   ├── top_link_bar.php.bak*
+│   │   │   ├── user.conf.php*
+│   │   │   └── user.conf.php.bak*
+│   │   ├── admin-details.php*
+│   │   ├── admin-details.php.bak*
+│   │   ├── admin-page-check.php*
+│   │   ├── admin-page-check.php.bak*
+│   │   ├── admin_link_bar.php*
+│   │   ├── admin_link_bar.php.bak*
+│   │   ├── copyright.php*
+│   │   ├── copyright.php.bak*
+│   │   ├── disclaimer-body.php*
+│   │   ├── disclaimer-body.php.bak*
+│   │   ├── domain.conf.php*
+│   │   ├── domain.conf.php.bak*
+│   │   ├── homepage-menu.php*
+│   │   ├── homepage-menu.php.bak*
+│   │   ├── meta-info.php*
+│   │   ├── meta-info.php.bak*
+│   │   ├── page-head.php*
+│   │   ├── page-head.php.bak*
+│   │   ├── right-menu.php*
+│   │   ├── right-menu.php.bak*
+│   │   ├── session.funcs.php*
+│   │   ├── session.funcs.php.bak*
+│   │   ├── site-config.php*
+│   │   ├── site-config.php.bak*
+│   │   ├── site-js.js*
+│   │   ├── site-js.js.bak*
+│   │   ├── site-js.org*
+│   │   ├── site-js.org.bak*
+│   │   ├── top_link_bar.php*
+│   │   ├── top_link_bar.php.bak*
+│   │   ├── user.conf.php*
+│   │   └── user.conf.php.bak*
+│   ├── meta-menus/
+│   │   ├── tmp-backups/
+│   │   │   ├── anti-gravity.php*
+│   │   │   ├── anti-gravity.php.bak*
+│   │   │   ├── computing.php*
+│   │   │   ├── computing.php.bak*
+│   │   │   ├── discoveries-inventions.php*
+│   │   │   ├── discoveries-inventions.php.bak*
+│   │   │   ├── external-links.php*
+│   │   │   ├── external-links.php.bak*
+│   │   │   ├── hot-topics.php*
+│   │   │   ├── hot-topics.php.bak*
+│   │   │   ├── mixed-links-example.php*
+│   │   │   ├── mixed-links-example.php.bak*
+│   │   │   ├── module-example1.php*
+│   │   │   ├── module-example1.php.bak*
+│   │   │   ├── module-example2.php*
+│   │   │   ├── module-example2.php.bak*
+│   │   │   ├── module-example3.php*
+│   │   │   ├── module-example3.php.bak*
+│   │   │   ├── module-groups-example.php*
+│   │   │   ├── module-groups-example.php.bak*
+│   │   │   ├── new-ext-module.php*
+│   │   │   ├── new-ext-module.php.bak*
+│   │   │   ├── new-module.php*
+│   │   │   ├── new-module.php.bak*
+│   │   │   ├── page-checker.php*
+│   │   │   ├── page-checker.php.bak*
+│   │   │   ├── powered-by.php*
+│   │   │   └── powered-by.php.bak*
+│   │   ├── anti-gravity.php*
+│   │   ├── anti-gravity.php.bak*
+│   │   ├── computing.php*
+│   │   ├── computing.php.bak*
+│   │   ├── discoveries-inventions.php*
+│   │   ├── discoveries-inventions.php.bak*
+│   │   ├── external-links.php*
+│   │   ├── external-links.php.bak*
+│   │   ├── hot-topics.php*
+│   │   ├── hot-topics.php.bak*
+│   │   ├── mixed-links-example.php*
+│   │   ├── mixed-links-example.php.bak*
+│   │   ├── module-example1.php*
+│   │   ├── module-example1.php.bak*
+│   │   ├── module-example2.php*
+│   │   ├── module-example2.php.bak*
+│   │   ├── module-example3.php*
+│   │   ├── module-example3.php.bak*
+│   │   ├── module-groups-example.php*
+│   │   ├── module-groups-example.php.bak*
+│   │   ├── new-ext-module.php*
+│   │   ├── new-ext-module.php.bak*
+│   │   ├── new-module.php*
+│   │   ├── new-module.php.bak*
+│   │   ├── page-checker.php*
+│   │   ├── page-checker.php.bak*
+│   │   ├── powered-by.php*
+│   │   └── powered-by.php.bak*
+│   ├── themes/
+│   │   └── default/
+│   │       ├── tmp-backups/
+│   │       │   ├── site-css.php*
+│   │       │   └── site-css.php.bak*
+│   │       ├── site-css.php*
+│   │       └── site-css.php.bak*
+│   └── PATH-CHANGER.BASH*
+├── shared-host/
+│   └── incs/
+│       ├── NOTE*
+│       ├── host.css -> /srv/www/htdocs/KAR/websites/shared-host/incs/host.css*
+│       ├── host.js -> /srv/www/htdocs/KAR/websites/shared-host/incs/host.js*
+│       ├── x_core.js -> /srv/www/htdocs/KAR/websites/shared-host/incs/x_core.js*
+│       └── x_event.js -> /srv/www/htdocs/KAR/websites/shared-host/incs/x_event.js*
+├── tmp-backups/
+│   ├── change-feed-links-menu.xml*
+│   ├── change-feed-links-menu.xml.bak*
+│   ├── change-user-config-conf.xml*
+│   ├── create-new-ext-module.xml*
+│   ├── create-new-ext-module.xml.bak*
+│   ├── create-new-module.xml*
+│   ├── create-new-module.xml.bak*
+│   ├── int-build.xml*
+│   ├── int-build.xml.bak*
+│   ├── int-delete.xml*
+│   ├── int-delete.xml.bak*
+│   ├── live-build.xml*
+│   ├── live-build.xml.bak*
+│   ├── live-delete.xml*
+│   ├── live-delete.xml.bak*
+│   ├── remove-AA-NOTES.bsh*
+│   ├── remove-AA-NOTES.bsh.bak*
+│   ├── rename-AA-NOTES.bsh*
+│   ├── rename-AA-NOTES.bsh.bak*
+│   ├── robots.txt*
+│   └── robots.txt.bak*
+├── website-docs/
+│   ├── dtds/
+│   │   ├── tmp-backups/
+│   │   │   ├── html4-f.hml*
+│   │   │   ├── html4-f.hml.bak*
+│   │   │   ├── html4-s.hml*
+│   │   │   ├── html4-s.hml.bak*
+│   │   │   ├── html4-t.hml*
+│   │   │   ├── html4-t.hml.bak*
+│   │   │   ├── xhtml1-f.hml*
+│   │   │   ├── xhtml1-f.hml.bak*
+│   │   │   ├── xhtml1-s.hml*
+│   │   │   ├── xhtml1-s.hml.bak*
+│   │   │   ├── xhtml1-t.hml*
+│   │   │   └── xhtml1-t.hml.bak*
+│   │   ├── html4-f.hml*
+│   │   ├── html4-f.hml.bak*
+│   │   ├── html4-s.hml*
+│   │   ├── html4-s.hml.bak*
+│   │   ├── html4-t.hml*
+│   │   ├── html4-t.hml.bak*
+│   │   ├── xhtml1-f.hml*
+│   │   ├── xhtml1-f.hml.bak*
+│   │   ├── xhtml1-s.hml*
+│   │   ├── xhtml1-s.hml.bak*
+│   │   ├── xhtml1-t.hml*
+│   │   └── xhtml1-t.hml.bak*
+│   ├── tmp-backups/
+│   │   ├── 00-NOTE*
+│   │   ├── CHANGES-WEBSITE*
+│   │   ├── CHANGES-WEBSITE.bak*
+│   │   ├── DEV-NOTES*
+│   │   ├── DEV-NOTES.bak*
+│   │   ├── MODULES.TXT*
+│   │   ├── MODULES.TXT.bak*
+│   │   ├── SITE.IDEAS*
+│   │   └── SITE.IDEAS.bak*
+│   ├── 00-NOTE*
+│   ├── CHANGES-WEBSITE*
+│   ├── CHANGES-WEBSITE.bak*
+│   ├── DEV-NOTES*
+│   ├── DEV-NOTES.bak*
+│   ├── MODULES.TXT*
+│   ├── MODULES.TXT.bak*
+│   ├── SITE.IDEAS*
+│   └── SITE.IDEAS.bak*
+├── change-feed-links-menu.xml*
+├── change-feed-links-menu.xml.bak*
+├── change-user-config-conf.xml*
+├── create-new-ext-module.xml*
+├── create-new-ext-module.xml.bak*
+├── create-new-module.xml*
+├── create-new-module.xml.bak*
+├── int-build.xml*
+├── int-build.xml.bak*
+├── int-delete.xml*
+├── int-delete.xml.bak*
+├── live-build.xml*
+├── live-build.xml.bak*
+├── live-delete.xml*
+├── live-delete.xml.bak*
+├── remove-AA-NOTES.bsh*
+├── remove-AA-NOTES.bsh.bak*
+├── rename-AA-NOTES.bsh*
+├── rename-AA-NOTES.bsh.bak*
+├── robots.txt*
+└── robots.txt.bak*
+
+145 directories, 819 files
+[root@karsites develop]#

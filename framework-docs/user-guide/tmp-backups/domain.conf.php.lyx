@@ -1,0 +1,246 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+%This preamble is designed to ensure that the document prints
+% out as advertised. If you mess with this preamble,
+% parts of the document may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+\usepackage{ifpdf} % part of the hyperref bundle
+\ifpdf % if pdflatex is used
+
+ % set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+
+ % link all cross references and URLs in pdf output
+ \usepackage[colorlinks=true, bookmarks, bookmarksnumbered,
+  bookmarksopen, bookmarksopenlevel=2,
+  linkcolor=blue, citecolor=black, urlcolor=blue, filecolor=blue,
+  pdfpagelayout=OneColumn, pdfnewwindow=true,
+  pdfstartview=XYZ, plainpages=false, pdfpagelabels,
+  pdfauthor={LyX Team}, pdftex,
+  pdftitle={Introduction to LyX},pdfsubject={LyX-documentation Intro},
+  pdfkeywords={LyX, documentation}]{hyperref}
+ 
+\else % if dvi or ps is produced
+
+ % link all cross references and URLs in dvi output
+ \usepackage[ps2pdf]{hyperref}
+
+\fi % end if pdflatex is used
+
+ % the pages of the TOC are numbered roman
+ % and a pdf-bookmark for the TOC is added
+ \pagenumbering{roman}
+ \let\myTOC\tableofcontents
+ \renewcommand\tableofcontents{%
+   \pdfbookmark[1]{Contents}{}
+   \myTOC
+   \cleardoublepage
+   \pagenumbering{arabic} }
+
+% redefine the \LyX macro for PDF bookmarks
+\def\LyX{\texorpdfstring{%
+  L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX }}
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize 12
+\spacing single
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout LyX-Code
+
+\family roman
+\series bold
+domain.conf.php
+\family default
+\series default
+
+\newline
+
+\newline
+01 <?php
+\end_layout
+
+\begin_layout LyX-Code
+02 
+\end_layout
+
+\begin_layout LyX-Code
+03 /**
+\end_layout
+
+\begin_layout LyX-Code
+04 This config file is used to set domain specific paths
+\newline
+05 and values for
+ a website in the develop, intermediate
+\newline
+06 and live directories.
+ It is included by user.conf.php
+\newline
+07 as plain text, and not encoded.
+ Values set here apply
+\newline
+08 globally to a site, and may NOT be overidden anywhere
+ else.
+\end_layout
+
+\begin_layout LyX-Code
+09 Do NOT overwrite this file when updating site code from
+\newline
+10 develop or
+ intermediate code branches.
+ Different values
+\newline
+11 apply for each develop, intermediate and live directory.
+\end_layout
+
+\begin_layout LyX-Code
+12 **/
+\end_layout
+
+\begin_layout LyX-Code
+13
+\end_layout
+
+\begin_layout LyX-Code
+14 // URL for this website - used for validating xhtml & CSS.
+\end_layout
+
+\begin_layout LyX-Code
+15 // This needs to be set to the name of the virtual domain name
+\end_layout
+
+\begin_layout LyX-Code
+16 // when in a virtual server live directory container.
+\end_layout
+
+\begin_layout LyX-Code
+17 $DOMAIN_NAME = "http://www.kazaam-mwf.net";
+\newline
+18
+\end_layout
+
+\begin_layout LyX-Code
+19 // Full path to website's base directory relative
+\newline
+20 // to DocumentRoot
+ setting.
+\newline
+21 // This needs to be set to "" when in a virtual server
+\end_layout
+
+\begin_layout LyX-Code
+22 // live directory container.
+\end_layout
+
+\begin_layout LyX-Code
+23 $WEBSITE_ROOT =
+\newline
+24 "/KAR/kazaam-mwf/kazaam-mwf-0.5.0.5/develop/kazaam-sitetpl";
+\newline
+25
+\end_layout
+
+\begin_layout LyX-Code
+26 // sitename to be used in page <title> tags.
+\end_layout
+
+\begin_layout LyX-Code
+27 $sitename = 'kazaam-sitetpl - DEVELOPMENT';
+\end_layout
+
+\begin_layout LyX-Code
+28
+\end_layout
+
+\begin_layout LyX-Code
+29 // path to shared-host include files.
+\end_layout
+
+\begin_layout LyX-Code
+30 // These include files are shared by all virtual hosts
+\end_layout
+
+\begin_layout LyX-Code
+31 // on this physical web server.
+\end_layout
+
+\begin_layout LyX-Code
+32 $SHARED_HOST_INCS = "../../../../shared-host/incs";
+\end_layout
+
+\begin_layout LyX-Code
+33
+\end_layout
+
+\begin_layout LyX-Code
+34 // Path to shared-host class files.
+\end_layout
+
+\begin_layout LyX-Code
+35 // These include files are shared by all virtual hosts
+\end_layout
+
+\begin_layout LyX-Code
+36 // on this physical web server.
+\end_layout
+
+\begin_layout LyX-Code
+37 $SHARED_HOST_CLASSES = "../../../../shared-host/classes";
+\end_layout
+
+\begin_layout LyX-Code
+38
+\end_layout
+
+\begin_layout LyX-Code
+39 ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_body
+\end_document

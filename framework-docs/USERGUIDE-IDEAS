@@ -1,0 +1,107 @@
+==================================================================
+KAZAAM DOCUMENTATION IDEAS
+==================================================================
+
+Mention that /tmp-backups is a directory for storing *regular*
+temporary backups while doing development in a certain directory.
+
+Outline, Overview.
+
+Kazaam Tutorials Part 1
+Kazaam Tutorials Part 2
+Kazaam Tutorials Part 3
+...
+Kazaam Tutorials Part n
+
+==================================================================
+CHAPTERS to add to the KazaamUserGuide:
+==================================================================
+
+CSS Themes and Styles
+
+Chapter Overview - This chapter looks at the way Cascading Style
+Sheets are used with Kazaam websites.
+
+------------------------------------------------------------------
+
+Kazaam Menu System
+
+Chapter Overview - This chapter describes how the menus in the
+left_column and right_column <div> parts of a 2-column and 3-column
+page work.
+ 
+------------------------------------------------------------------
+
+Kazaam Meta-tags
+
+Chapter Overview
+
+------------------------------------------------------------------
+
+Suggested Uses for Kazaam Modules
+
+------------------------------------------------------------------
+
+Customising Kazaam Templates
+
+Customising kazaam-sitetpl
+Customising new-ext-module
+Customising new-module
+
+------------------------------------------------------------------
+
+Customising Kazaam PHING scripts
+
+------------------------------------------------------------------
+
+Customising CSS Themes & Styles
+
+------------------------------------------------------------------
+
+Customising Meta-tags
+ 
+------------------------------------------------------------------
+
+==================================================================
+APPENDIXES to add to the KazaamUserGuide:
+==================================================================
+
+------------------------------------------------------------------
+
+Configuring Apache Web Server
+
+Introduction to Name-based Virtual Hosts
+
+For new users that do not understand name-based virtual hosting,
+Add a brief introduction to name-based virtual hosting for apache.
+
+Configuring MySQL
+
+Configuring PHP5
+
+------------------------------------------------------------------
+
+Security Issues
+
+Apache web server
+
+MySQL
+
+PHP5
+register_globals needs to be set to OFF. 
+
+------------------------------------------------------------------
+
+Encoding PHP with Ioncube Encoder
+
+------------------------------------------------------------------
+
+==================================================================
+OTHER DOCUMENTATION to complement the KazaamUserGuide:
+==================================================================
+
+Screenshot of a 3-column page layout.
+
+Edit it in GIMP, adding the component names to the *.jpg picture.
+
+------------------------------------------------------------------

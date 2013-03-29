@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+
+<project name="changing local/incs to shared/incs" default="main" basedir=".">
+
+  <target name="main">
+
+    <echo msg="updating ../local to ../shared/" />
+
+    <reflexive>
+      <fileset dir=".">
+        <include name="**/*" />
+
+        <exclude name="tmp-backups/**" />
+        <exclude name="*.xml" />
+        <exclude name="*.xml.bak" />
+        <exclude name="**/*.xml" />
+        <exclude name="**/*.xml.bak" />
+      </fileset>
+
+      <filterchain>
+        <replaceregexp>
+          <regexp pattern="\.\.\/local\/incs\/site\-config\.php" replace="../../shared/incs/site-config.php" />
+        </replaceregexp>
+      </filterchain>
+
+    </reflexive>
+
+  </target>
+
+</project>

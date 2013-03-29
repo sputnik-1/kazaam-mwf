@@ -1,0 +1,83 @@
+REQUIREMENTS
+------------
+
+Kazaam needs a working PHP development environment, and the PHING PHP
+build tool.
+
+I use Linux and the LAMP stack for developing kazaam-mwf.
+
+Whatever your platform you will need to set up a working PHP
+development environment and install PHING to use kazaam-mwf.
+
+Here are some pointers to setting up your PHP development machine:
+
+LINUX
+-----
+
+Just use your Linux package manager to install:
+
+* Apache
+
+* MySQL
+
+* PHP - you will need the command line version installed, as well as the
+  Apache PHP module.
+
+* Phing - this is a project build tool based on ANT.
+  http://www.phing.info/
+
+
+WINDOWS
+-------
+
+I use a package of pre-compiled tools, such as:
+
+WAMP http://www.wampserver.com/en/
+
+Make sure you have all the required VC++ runtime libraries installed,
+otherwise WAMP will not work.
+
+To install PHING on Windows the easiest way is to follow this guide:
+http://www.phing.info/trac/wiki/Users/Installation
+
+"The preferred method to install Phing is through PEAR and the Phing PEAR
+channel. You can install Phing by adding the pear.phing.info channel to
+your PEAR environment and then installing Phing using the phing channel
+alias and phing package name." 
+
+http://pear.php.net/manual/en/installation.getting.php
+
+PHING is dependant on PEAR (for the easiest install), and PEAR depends
+on PHP.
+
+The installation order on Windows then is:
+
+PHP first
+Then PEAR
+Then PHING
+
+
+MAC OSX
+-------
+
+I've not installed a working PHP developer's environment on this OS yet.
+
+There is http://www.apachefriends.org/en/xampp-macosx.html
+
+But I have not tested this personally myself.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

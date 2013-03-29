@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<project name="changing feeds-links-menu.php" default="main" basedir=".">
+
+  <target name="main">
+
+    <echo msg="changing feeds-links-menu.php to right-menu.php" />
+
+    <reflexive>
+      <fileset dir=".">
+        <include name="**/*" />
+
+        <exclude name="*.xml" />
+        <exclude name="*.xml.bak" />
+        <exclude name="**/*.xml" />
+        <exclude name="**/*.xml.bak" />
+      </fileset>
+
+      <filterchain>
+        <replaceregexp>
+          <!-- regexp pattern="user\-config\.conf" replace="user-conf.php" / -->
+
+          <regexp pattern="feeds\-links\-menu\.php" replace="right-menu.php" />
+
+        </replaceregexp>
+      </filterchain>
+
+    </reflexive>
+
+  </target>
+
+</project>

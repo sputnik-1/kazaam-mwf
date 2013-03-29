@@ -1,0 +1,35 @@
+// possible list of modules to develop for kazaam-mwf
+
+-----------------------------------------------------------------------
+module to upload generic images to server
+m_image-upload  class.ImageUpload.php
+
+-----------------------------------------------------------------------
+module to allow a web user to send an email via a website
+m_form-mail  class.FormMail.php
+
+-----------------------------------------------------------------------
+module to allow any user to search the website's static page content
+m_site-search  class.SiteSearch.php
+
+-----------------------------------------------------------------------
+module to process papypal payments
+m_paypal  class.PayPal.php
+
+-----------------------------------------------------------------------
+module to check anyuser access to website
+m_authorise  class.Authorise.php
+
+-----------------------------------------------------------------------
+module to list a company's products
+m_product-catalog  class.ProductCatalog.php
+
+-----------------------------------------------------------------------
+module to show company information
+m_company-info  class.CompanyInfo.php
+
+-----------------------------------------------------------------------
+module to show a company's vacancies
+m_vacancy  class.Vacancy.php
+
+-----------------------------------------------------------------------
