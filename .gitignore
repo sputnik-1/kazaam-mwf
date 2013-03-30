@@ -1,0 +1,8 @@
+# do not track or add the following files to the Git repos
+# These files are for my own use only
+# - not for the project at large
+
+AA_MY-TODO
+AA_MY-TODO.*
+AA_MY-NEXT-STEP
+AA_MY-NEXT-STEP.*

@@ -23,7 +23,7 @@ Find the following code at lines 27-30:
 // Full path to the virtual host's base directory relative to Apache's
 // DocumentRoot setting. This needs to be set to "" for virtual hosts
 // in the live code branch.
-$WEBSITE_ROOT = "/KAR/MyGithubProjects/pending/PHP/kazaam-mwf/develop/kazaam-sitetpl";
+$WEBSITE_ROOT = "/KAR/MyGithubProjects/live/PHP/kazaam-mwf/develop/kazaam-sitetpl";
 
 Now change the $WEBSITE_ROOT setting to match where you have installed kazaam-mwf
 

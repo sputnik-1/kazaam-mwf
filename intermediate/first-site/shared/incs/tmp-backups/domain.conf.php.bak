@@ -27,7 +27,7 @@ $DOMAIN_NAME = "http://www.kazaam-mwf.net";
 // Full path to the virtual host's base directory relative to Apache's
 // DocumentRoot setting. This needs to be set to "" for virtual hosts
 // in the live code branch.
-$WEBSITE_ROOT = "/KAR/MyGithubProjects/pending/PHP/kazaam-mwf/intermediate/first-site";
+$WEBSITE_ROOT = "/KAR/MyGithubProjects/live/PHP/kazaam-mwf/intermediate/first-site";
 
 // sitename to be used in a virtual host's page <title> tags.
 $sitename = 'first-site - INTERMEDIATE';

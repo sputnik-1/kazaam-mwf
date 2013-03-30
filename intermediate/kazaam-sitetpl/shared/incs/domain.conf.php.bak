@@ -24,7 +24,7 @@ $DOMAIN_NAME = "http://www.kazaam-mwf.net";
 // full path to website's base directory relative to DocumentRoot setting
 // this needs to be set to "" when in a virtual server
 // live directory container
-$WEBSITE_ROOT = "/KAR/MyGithubProjects/pending/PHP/kazaam-mwf/intermediate/kazaam-sitetpl";
+$WEBSITE_ROOT = "/KAR/MyGithubProjects/live/PHP/kazaam-mwf/intermediate/kazaam-sitetpl";
 
 // sitename to be used in page <title> tags
 $sitename = 'kazaam-sitetpl - INTERMEDIATE';
